@@ -156,7 +156,7 @@ filter: opacity(0.65);
 /* Colorful Pageload indicator */
 .UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator { /* Progress bar background before load */
 	border-radius: 6px !important;  /* Progress bar background before load roundness */
-	background: var(--colorImageFg, var(--colorAccentFg));
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), var(--colorAccentBgAlpha);
 	opacity:0.8;
 	top: 0px;
 	height:24px;
@@ -166,14 +166,13 @@ filter: opacity(0.65);
 .UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator::-webkit-progress-value { /* the progressbar */
         background-color: var(--colorAccentBgAlpha);
 		border-radius:5px;
-		opacity: 0.8;
+		opacity: 1;
 
 }
 .SearchField, .UrlBar-AddressField {
     border-radius: 8px;
-    background: var(--colorImageFg, var(--colorAccentFg)));
-	background-blend-mode: darken;
-	opacity:0.8;
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), var(--colorAccentBgAlpha);
+	opacity:1;
 	border: none;
 	height:24px;
 }
@@ -188,12 +187,15 @@ filter: opacity(0.65);
 .vivaldi:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.1); transition: transform .15s ease-in-out !important;} 
 .icons #switch > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
 .icons #switch > button:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .15s ease-in-out !important;}
+
+
 /* Tab stack frame border color fixer */
 .tabs-top .tab-position.is-substack .tab:not(.active) .svg-tab-stack{
 	padding-bottom: 0px !important;
 }
 .svg-tab-stack .stack-frame {
-    stroke: var(--colorAccentFgFaded);
+    stroke: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.3;
 }
 .tabs-subcontainer {
 	height:30px;
