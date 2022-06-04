@@ -1,0 +1,196 @@
+
+/* popup page zoom control */
+#browser > footer .page-zoom-controls input[type=range] {position: absolute; background-image: linear-gradient(90deg, #0000 0 calc(22% - 2px), var(--colorBg) 0 22%, #0000 0 calc(40% - 2px), var(--colorBg) 0 40%, #0000 0 calc(58% - 2px), var(--colorBg) 0 58%, #0000 0 calc(77% - 2px), var(--colorBg) 0 77%, #0000 0 100%); box-shadow: 0 0 0 7px var(--colorBg), 0 0 0 8px var(--colorBorder), 0 2px 12px hsl(0deg 0% 0% / 25%); visibility: hidden; opacity:0; transform: translate(-25px, -20px); transition: visibility .6s, opacity .2s ease-out .4s, transform .25s ease-in .36s !important;}
+#browser > footer .page-zoom-controls:is(:hover, :focus-within) > input[type=range] {visibility: visible; opacity: 1; transform: translate(-25px, -25px); transition: opacity: .1s ease-out .12s, transform .1s ease .1s !important;}
+#browser > footer .page-zoom-controls input[type=range]::before {content: ''; position: absolute; pointer-events: none; border: 6px solid hsl(0deg 0% 0% / 0%); z-index: inherit; filter: drop-shadow(0 1px var(--colorBorder)); bottom: -19px; left: 50%; margin-left: -6px; border-top-color: var(--colorBgLight);}
+#browser > footer .page-zoom-controls .zoom-percent {order:-1;} /* move % to left */
+#browser > footer .page-zoom-controls .reset-zoom button .button-title {min-width: 1ch; max-width: 1ch;} /* reduced Reset to R button */
+
+/* centered addressfield URL */
+
+
+/* hide https:// display */
+.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper .UrlFragment-Wrapper > .UrlFragment--Lowlight:first-of-type {opacity:0;}
+
+/* secure domain green highlighter  */
+.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD {-webkit-text-stroke-width: 0.2px;}
+.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD) {color: LightGreen;}
+
+/* warning domain pink highlighter */
+.UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD) {color: deeppink;}
+}
+/* Merge tab bar and addressbar */
+.win.normal .toolbar-mainbar {
+    left: unset;
+    right: unset;
+}
+#main {
+    position: unset;
+}
+
+#tabs-container {
+    padding-left: calc(24vw + 150px) !important;   /* Adjust acording to left button, 35px each */
+	padding-right: 170px !important;  /* Adjust acording to number of extension, 35px each*/
+	padding-top: 0px !important;
+	margin-top: 0px;
+	min-height: 30px;
+}
+.maximized #tabs-container {
+    min-height: 30px;
+    margin-top: 0px;
+}
+#tabs-container .resize {
+    min-height: 30px;
+    margin-top: 0px;
+}
+.tab-group-indicator {
+    top: 0 !important;
+}
+
+.win.normal #titlebar {
+    top: 0px;
+}
+
+.UrlBar-AddressField {
+    width: 24vw !important;
+    top: 0px !important;
+}
+
+.win.normal .UrlBar-AddressField {
+    top: 0px;
+}
+
+.toolbar-mainbar:not(.toolbar-wrap) {
+    position: absolute;
+    top: 0px;
+    left: 35px !important;
+    height: 30px;
+    background: var(--colorAccentBg) !important;
+	border: none !important;
+}
+
+.toolbar-mainbar {
+     background: var(--colorAccentBg) !important;
+	 border-radius: var(--radiusHalf)!important;
+}
+
+.win.normal .toolbar-mainbar {
+    left: unset;
+    right: unset;
+	border-radius: var(--radiusHalf)!important;
+}
+
+.toolbar-extensions {
+    position: absolute !important;
+    transform: translate(-100%, 0);
+    background-color: var(--colorAccentBg) !important;
+    left: calc(100vw - 205px) !important;  /* Adjust acordingly*/
+	height: 30px !important;
+	top: 0px;
+	border-radius: var(--radiusHalf)!important;
+}
+.toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
+	 display: none !important;
+}
+.maximized .toolbar-extensions{
+    left: calc(100vw - 135px) !important;   /* Adjust acordingly*/
+    height: 30px !important;
+	top: 0px;
+}
+.toolbar-mainbar .toolbar-extensions > .button-toolbar > button, .toolbar-mainbar > .button-toolbar > button, .toolbar-mainbar .toolbar-extensions > .toolbar-group > .button-toolbar > button, .toolbar-mainbar > .toolbar-group > .button-toolbar > button {
+height:30px !important;
+}
+
+.vivaldi {
+    margin-top: -6px !important;  /* Adjust acordingly*/
+}
+.maximized .vivaldi {
+    margin-top: 0px !important;
+}
+#header, #main {
+    position: unset;
+}
+
+#header {
+    height: unset;
+}
+
+.maximized .toolbar-tabbar.sync-and-trash-container {
+		top: 0px !important;
+}
+.maximized .window-buttongroup {
+	height: 30px !important;
+	width: 100px !important;
+	top: 0px !important;
+}
+.window-buttongroup {
+	height: 30px !important;
+	width: 100px !important;
+	top: 0px !important;
+}
+#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
+    height: 30px;
+}
+.tabs-at-edge.fullscreen#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi), .tabs-at-edge.maximized#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
+    height: 30px;
+}
+.win10.normal #tabs-tabbar-container.top {
+	padding-top: 0px !IMPORTANT;
+}
+.button-toolbar.newtab {
+	top: 0px !important;
+}
+.maximized .button-toolbar.newtab {
+	top: 0px !important;
+}
+/* Change toolbar button and extension button color same as tab bar's button */
+.toolbar-mainbar > .button-toolbar > button, .toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
+color: var(--colorImageFg, var(--colorAccentFg));
+filter: opacity(0.65);
+}
+/* Colorful Pageload indicator */
+.UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator {
+	border-radius:30px !important; 
+	background: var(--colorAccentBg);
+	opacity:1;
+}
+.SearchField, .UrlBar-AddressField {
+    border-radius: 30px;
+	background:var(--colorBg);
+}
+.UrlBar-AddressField .pageload .pageload-ticker {
+	display: none;
+}
+/* Stylish toolbar button animation */
+.button-toolbar > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.button-toolbar:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .15s ease-in-out !important;}
+.toolbar-mainbar .toolbar-extensions > .button-toolbar > button:hover {border-radius: 30%; background: transparent; transition: .3s ease-out !important;}
+.vivaldi:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.vivaldi:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.1); transition: transform .15s ease-in-out !important;} 
+.icons #switch > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.icons #switch > button:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .15s ease-in-out !important;}
+
+/* Fix round corner line tab bar */
+.tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
+    right: calc(1.8px - var(--radiusHalf));
+}
+.tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):before {
+    left: calc(1.1px - var(--radiusHalf));
+}
+
+.tabs-subcontainer {
+	height:30px;
+}
+/* Animate tab highlight on hover*/
+.tab-position .tab:hover {
+	border: solid var(--colorAccentBgAlpha);
+	border-radius: var(--radiusHalf);
+	transition: .2s ease-out !important;
+}
+#browser .tab-position .tab.active:hover {
+	border: solid var(--colorbg);
+		border-radius: 1px;
+}
+.tab-position.is-substack > .tab.active {
+	margin-bottom: 0px !important;
+}
