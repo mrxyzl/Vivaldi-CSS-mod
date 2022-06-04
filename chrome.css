@@ -53,7 +53,7 @@ font-;
     top: 0 !important;
 }
 
-.maximized .win.normal #titlebar {
+.win.normal #titlebar {
     top: 0px;
 }
 
@@ -75,9 +75,8 @@ font-;
 	border: none !important;
 }
 
-.maximized .toolbar-mainbar {
-     background: var(--colorAccentBg) !important;
-	 border-radius: var(--radiusHalf)!important;
+.toolbar-mainbar {
+     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 
 .maximized .win.normal .toolbar-mainbar {
@@ -95,16 +94,23 @@ font-;
 	top: 0px;
 	border-radius: var(--radiusHalf)!important;
 }
-.maximized .toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
+.toolbar-mainbar .toolbar-extensions {
+	background-color: transparent;
+}
+.toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
 	 display: none !important;
 }
-.maximized .toolbar-extensions{
+.maximized .toolbar-extensions {
     left: calc(100vw - 135px) !important;   /* Adjust acordingly*/
     height: 30px !important;
 	top: 0px;
 }
-.maximized .toolbar-mainbar .toolbar-extensions > .button-toolbar > button, .toolbar-mainbar > .button-toolbar > button, .toolbar-mainbar .toolbar-extensions > .toolbar-group > .button-toolbar > button, .toolbar-mainbar > .toolbar-group > .button-toolbar > button {
-height:30px !important;
+.maximized .toolbar-mainbar .toolbar-extensions > .button-toolbar > button{
+	height:30px;
+}
+	
+.maximized .toolbar-mainbar > .button-toolbar > button {
+   height:30px;
 }
 
 /*.vivaldi {
@@ -205,7 +211,7 @@ filter: opacity(0.65);
 .vivaldi:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
 .vivaldi:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.1); transition: transform .15s ease-in-out !important;} 
 .icons #switch > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
-.icons #switch > button:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .15s ease-in-out !important;}
+.icons #switch > button:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .3s ease-in-out !important;}
 
 /* ###################################################################################################################################### */
 
@@ -262,3 +268,11 @@ filter: opacity(0.65);
 }
 /* ###################################################################################################################################### */
 
+/* Change bookmark bar color follow Accent*/
+.color-behind-tabs-on .bookmark-bar button {
+   background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
+.color-behind-tabs-on .bookmark-bar {
+     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
