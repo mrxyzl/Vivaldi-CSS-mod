@@ -31,7 +31,7 @@ The [**Modding Forum Board**][3] is a great resource, featuring guides on how to
 installation after updating the browser and providing you with a plethora of mods written by the community.
 
 I'm too lazy to seperate the mods into seperate files so you need to read the main chrome CSS and copy the section you need to your own CSS.
-oh and BTW i mainly set this UI up for use in conjunction with dark- oriented theme and both color overide option in theme setting on, so yours UI may not look as good as this with different theme
+oh and BTW i mainly set this UI up for use in conjunction with dark- oriented theme and both color overide option in theme setting on, so yours UI may not look as good as this with different theme. Also, i dont use horizontal menu so it wont work
 
 [1]: https://vivaldi.com/
 [2]: https://forum.vivaldi.net/topic/10549/modding-vivaldi/
