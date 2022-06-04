@@ -212,7 +212,12 @@ filter: opacity(0.65);
 .vivaldi:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.1); transition: transform .15s ease-in-out !important;} 
 .icons #switch > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
 .icons #switch > button:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .3s ease-in-out !important;}
-
+.button-toolbar > button {
+	border: none;
+}
+.BookmarkButton {
+	border: none;
+}
 /* ###################################################################################################################################### */
 
 /* Tab stack frame border color fixer */
