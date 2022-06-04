@@ -10,13 +10,21 @@
 /* ###################################################################################################################################### */
 
 /* Secure domain green highlighter  */
-.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD {-webkit-text-stroke-width: 0.2px;}
+.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD {-webkit-text-stroke-width: 0px; text-shadow: none;}
 .UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD) {color: LightGreen;}
 
 /* warning domain pink highlighter */
 .UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD) {color: deeppink;}
 }
 
+.UrlFragment-HostFragment-Subdomain:not([data-content="www."]){ 
+color:var(--colorImageFg, var(--colorAccentFg)); 
+font-;
+}
+.UrlFragment-Wrapper {
+	color:var(--colorImageFg, var(--colorAccentFg));
+	text-shadow: none;
+}
 
 /* ###################################################################################################################################### */
 
@@ -164,7 +172,7 @@ filter: opacity(0.65);
 /* Colorful Pageload indicator */
 .UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator { /* Progress bar background before load */
 	border-radius: 6px !important;  /* Progress bar background before load roundness */
-    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), var(--colorAccentBgAlpha);
+    background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), var(--colorAccentBgAlpha);
 	opacity:0.8;
 	top: 0px;
 	height:24px;
@@ -179,7 +187,7 @@ filter: opacity(0.65);
 }
 .SearchField, .UrlBar-AddressField {
     border-radius: 8px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), var(--colorAccentBgAlpha);
+    background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), var(--colorAccentBgAlpha);
 	opacity:1;
 	border: none;
 	height:24px;
@@ -217,11 +225,11 @@ filter: opacity(0.65);
 /* Fix round corner 1px line tab bar */
 .tab.active:not(.marked):not(.tab-mini):before {
     left: calc(1.1px - var(--radiusHalf));
-	 background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), var(--colorAccentBgDarker);
+	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 .tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
     right: calc(1.6px - var(--radiusHalf));
-	 background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), var(--colorAccentBgDarker);
+	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 
 /* ###################################################################################################################################### */
@@ -241,8 +249,9 @@ filter: opacity(0.65);
 	margin-bottom: 0px !important;
 }
 #browser.color-behind-tabs-on .tab-position .tab.active.active {
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), var(--colorAccentBgDarker);
+    background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
     color: var(--colorFg);
+	transition: .4s ease-out !important;
 }
 
 /* ###################################################################################################################################### */
