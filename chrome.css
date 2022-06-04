@@ -37,7 +37,7 @@ font-;
     position: unset;
 }
 
-#tabs-container {
+.maximized #tabs-container {
     padding-left: calc(24vw + 145px) !important;   /* Adjust acording to left button, 35px each */
 	padding-right: 170px !important;  /* Adjust acording to number of extension, 35px each*/
 	padding-top: 0px !important;
@@ -45,28 +45,28 @@ font-;
 	min-height: 30px;
 }
 
-#tabs-container .resize {
+.maximized #tabs-container .resize {
     min-height: 30px;
     margin-top: 0px;
 }
-.tab-group-indicator {
+.maximized .tab-group-indicator {
     top: 0 !important;
 }
 
-.win.normal #titlebar {
+.maximized .win.normal #titlebar {
     top: 0px;
 }
 
-.UrlBar-AddressField {
+.maximized .UrlBar-AddressField {
     width: 24vw !important;
     top: 0px !important;
 }
 
-.win.normal .UrlBar-AddressField {
+.maximized .win.normal .UrlBar-AddressField {
     top: 0px;
 }
 
-.toolbar-mainbar:not(.toolbar-wrap) {
+.maximized .toolbar-mainbar:not(.toolbar-wrap) {
     position: absolute;
     top: 0px;
     left: 35px !important;
@@ -75,18 +75,18 @@ font-;
 	border: none !important;
 }
 
-.toolbar-mainbar {
+.maximized .toolbar-mainbar {
      background: var(--colorAccentBg) !important;
 	 border-radius: var(--radiusHalf)!important;
 }
 
-.win.normal .toolbar-mainbar {
+.maximized .win.normal .toolbar-mainbar {
     left: unset;
     right: unset;
 	border-radius: var(--radiusHalf)!important;
 }
 
-.toolbar-extensions {
+.maximized .toolbar-extensions {
     position: absolute !important;
     transform: translate(-100%, 0);
     background-color: var(--colorAccentBg) !important;
@@ -95,7 +95,7 @@ font-;
 	top: 0px;
 	border-radius: var(--radiusHalf)!important;
 }
-.toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
+.maximized .toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
 	 display: none !important;
 }
 .maximized .toolbar-extensions{
@@ -103,21 +103,21 @@ font-;
     height: 30px !important;
 	top: 0px;
 }
-.toolbar-mainbar .toolbar-extensions > .button-toolbar > button, .toolbar-mainbar > .button-toolbar > button, .toolbar-mainbar .toolbar-extensions > .toolbar-group > .button-toolbar > button, .toolbar-mainbar > .toolbar-group > .button-toolbar > button {
+.maximized .toolbar-mainbar .toolbar-extensions > .button-toolbar > button, .toolbar-mainbar > .button-toolbar > button, .toolbar-mainbar .toolbar-extensions > .toolbar-group > .button-toolbar > button, .toolbar-mainbar > .toolbar-group > .button-toolbar > button {
 height:30px !important;
 }
 
-.vivaldi {
+/*.vivaldi {
     margin-top: -6px !important;  /* Adjust acordingly*/
 }
 .maximized .vivaldi {
     margin-top: 0px !important;
 }
-#header, #main {
+.maximized #header, #main {
     position: unset;
 }
 
-#header {
+.maximized #header {
     height: unset;
 }
 
@@ -129,18 +129,18 @@ height:30px !important;
 	width: 100px !important;
 	top: 0px !important;
 }
-.window-buttongroup {
+/*.window-buttongroup {
 	height: 30px !important;
 	width: 100px !important;
 	top: 0px !important;
-}
-#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
+} */
+.maximized #browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
     height: 30px;
 }
-.tabs-at-edge.fullscreen#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi), .tabs-at-edge.maximized#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
+.maximized .tabs-at-edge.fullscreen#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi), .tabs-at-edge.maximized#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
     height: 30px;
 }
-.win10.normal #tabs-tabbar-container.top {
+.maximized .win10.normal #tabs-tabbar-container.top {
 	padding-top: 0px !IMPORTANT;
 }
 .button-toolbar.newtab {
