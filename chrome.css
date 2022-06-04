@@ -238,6 +238,10 @@ filter: opacity(0.65);
 .tab-position.is-substack > .tab.active {
 	margin-bottom: 0px !important;
 }
+#browser.color-behind-tabs-on .tab-position .tab.active.active {
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), var(--colorAccentBgDarker);
+    color: var(--colorFg);
+}
 
 /* ###################################################################################################################################### */
 
@@ -247,3 +251,5 @@ filter: opacity(0.65);
   background-color: var(--colorAccentBgAlpha);
   color: var(--colorImageFg, var(--colorAccentFg));
 }
+/* ###################################################################################################################################### */
+
