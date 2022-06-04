@@ -5,7 +5,7 @@
 This repository is a collection of mods I have kanged or modified for the
 [**Vivaldi web browser**][1]. 
 I cannot guarantee that all of these mods functions for you as you see here but  I do use these myself at the
-moment and it work for me, so should you run into problems with any of them, please let me know by
+moment and it work for me ( latest Vivaldi 5.3 stable), so should you run into problems with any of them, please let me know by
 creating an issue or posting question on Vivaldi forum
 
 ## List of current mod
