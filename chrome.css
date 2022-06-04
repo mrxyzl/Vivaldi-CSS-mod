@@ -217,9 +217,11 @@ filter: opacity(0.65);
 /* Fix round corner 1px line tab bar */
 .tab.active:not(.marked):not(.tab-mini):before {
     left: calc(1.1px - var(--radiusHalf));
+	 background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), var(--colorAccentBgDarker);
 }
 .tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
     right: calc(1.6px - var(--radiusHalf));
+	 background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), var(--colorAccentBgDarker);
 }
 
 /* ###################################################################################################################################### */
