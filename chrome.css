@@ -156,9 +156,12 @@ filter: opacity(0.65);
 /* Colorful Pageload indicator */
 .UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator { /* Progress bar background before load */
 	border-radius: 6px !important;  /* Progress bar background before load roundness */
-	background: var(--colorBgAlphaHeavy);
-	opacity:1;
-	top: 2px;
+	background: var(--colorImageFg, var(--colorAccentFg));
+	opacity:0.8;
+	top: 0px;
+	height:24px;
+	width:24vw;
+	left: 0px;
 }
 .UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator::-webkit-progress-value { /* the progressbar */
         background-color: var(--colorAccentBgAlpha);
@@ -168,8 +171,11 @@ filter: opacity(0.65);
 }
 .SearchField, .UrlBar-AddressField {
     border-radius: 8px;
-	background:var(--colorBgAlphaHeavy);
+    background: var(--colorImageFg, var(--colorAccentFg)));
+	background-blend-mode: darken;
+	opacity:0.8;
 	border: none;
+	height:24px;
 }
 .UrlBar-AddressField .pageload .pageload-ticker {
 	display: none; /* Disable page load ticket */
