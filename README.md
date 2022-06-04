@@ -30,7 +30,7 @@ the [**Official Guide**][2].
 The [**Modding Forum Board**][3] is a great resource, featuring guides on how to automate the process of patching your
 installation after updating the browser and providing you with a plethora of mods written by the community.
 
-Im too lazy to seperate the mods into seperate files so you need to read the main chrom CSS and copy the section you need to your own CSS.
+I'm too lazy to seperate the mods into seperate files so you need to read the main chrome CSS and copy the section you need to your own CSS.
 
 [1]: https://vivaldi.com/
 [2]: https://forum.vivaldi.net/topic/10549/modding-vivaldi/
