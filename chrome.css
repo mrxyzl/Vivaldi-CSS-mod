@@ -116,7 +116,7 @@ height:30px !important;
 .maximized .toolbar-tabbar.sync-and-trash-container {
 		top: 0px !important;
 }
-.maximized .window-buttongroup {
+.maximized .window-buttongroup { 
 	height: 30px !important;
 	width: 100px !important;
 	top: 0px !important;
@@ -215,11 +215,11 @@ filter: opacity(0.65);
 	height:30px;
 }
 /* Fix round corner 1px line tab bar */
-.tab.tab-accordion.active:after, .tab.active:c:after {
-    right: calc(1.8px - var(--radiusHalf));
-}
-.tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):before {
+.tab.active:not(.marked):not(.tab-mini):before {
     left: calc(1.1px - var(--radiusHalf));
+}
+.tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
+    right: calc(1.6px - var(--radiusHalf));
 }
 
 /* ###################################################################################################################################### */
