@@ -10,15 +10,15 @@ creating an issue or posting question on Vivaldi forum
 
 ## List of current mod
 Each mod contain a link to show how the mod look like:
-* ![popup page zoom control](https://imgur.com/7yEE7YG](https://i.imgur.com/7yEE7YG.gif) - whole credit to @dude99 on Vivaldi Forum
-* ![Secure domain green highlighter and adaptive URL color](https://imgur.com/a/62oOW1c](https://i.imgur.com/ra7M1Si.gif) - Credit to @dude99 on Vivaldi Forum and some more modification by me
-* ![Merge tab bar and address bar (AKA One Line UI)](https://imgur.com/a/Upups22](https://i.imgur.com/qHi0YW0.gif) - Credit to @oudstand on Vivaldi forum, some fix and modification by me
-* ![Change toolbar button and extension button color same as tab bar's button](https://imgur.com/a/vP1FDyu](https://i.imgur.com/str3in0.gif) - by me
-* ![Colorful Pageload indicator](https://imgur.com/a/VJBMTqH](https://i.imgur.com/96MDGXI.gif) - credit to @dude99 on Vivaldi forum - modified and fix by me
+* [popup page zoom control](https://imgur.com/7yEE7YG) - whole credit to @dude99 on Vivaldi Forum
+* [Secure domain green highlighter and adaptive URL color](https://imgur.com/a/62oOW1c)- Credit to @dude99 on Vivaldi Forum and some more modification by me
+* [Merge tab bar and address bar (AKA One Line UI)](https://imgur.com/a/Upups22) - Credit to @oudstand on Vivaldi forum, some fix and modification by me
+* [Change toolbar button and extension button color same as tab bar's button](https://imgur.com/a/vP1FDyu) - by me
+* [Colorful Pageload indicator](https://imgur.com/a/VJBMTqH) - credit to @dude99 on Vivaldi forum - modified and fix by me
 * Stylish toolbar button animation - credit to @dude99 on Vivaldi forum
 * Tab stack frame border color fixer - credit to me
 * Fix round corner 1px line tab bar  - credit to me
-* ![Stylish Animate tab highlight on hover](https://imgur.com/a/Upups22](https://i.imgur.com/qHi0YW0.gif) - credit to me
+* [Stylish Animate tab highlight on hover](https://imgur.com/a/Upups22) - credit to me
 * Change address bar text selection follow Accent - credit to me
 ## How to
 
