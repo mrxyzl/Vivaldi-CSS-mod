@@ -15,9 +15,9 @@ Each mod contain a link to show how the mod look like:
 * [Merge tab bar and address bar (AKA One Line UI)](https://imgur.com/a/Upups22) - Credit to @oudstand on Vivaldi forum, some fix and modification by me
 * [Change toolbar button and extension button color same as tab bar's button](https://imgur.com/a/vP1FDyu) - by me
 * [Colorful Pageload indicator](https://imgur.com/a/VJBMTqH) - credit to @dude99 on Vivaldi forum - modified and fix by me
-* Stylish toolbar button animation - credit to @dude99 on Vivaldi forum
+* [Stylish toolbar button animation](https://forum.vivaldi.net/topic/48904/mainbar-buttons-highlight-animation-css-mod) - credit to @dude99 on Vivaldi forum, expand function by me
 * Tab stack frame border color fixer - credit to me
-* Fix round corner 1px line tab bar  - credit to me
+* [Fix round corner 1px line tab bar](https://forum.vivaldi.net/topic/75977/css-fix-for-round-corner-active-tab-1px-line?_=1654348081237)  - credit to me
 * [Stylish Animate tab highlight on hover](https://imgur.com/a/Upups22) - credit to me
 * Change address bar text selection follow Accent - credit to me
 ## How to
