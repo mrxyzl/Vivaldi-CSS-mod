@@ -200,8 +200,8 @@ filter: opacity(0.65);
 .tabs-subcontainer {
 	height:30px;
 }
-/* Fix round corner line tab bar */
-.tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
+/* Fix round corner 1px line tab bar */
+.tab.tab-accordion.active:after, .tab.active:c:after {
     right: calc(1.8px - var(--radiusHalf));
 }
 .tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):before {
@@ -210,14 +210,15 @@ filter: opacity(0.65);
 
 
 /* Animate tab highlight on hover*/
-.tab-position .tab:hover {
-	border: solid var(--colorAccentBgAlpha);
+.tab-position .tab:not(.active):hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), var(--colorAccentBgAlpha);
 	border-radius: var(--radiusHalf);
+	transform: scale(1.05);
 	transition: .2s ease-out !important;
 }
 #browser .tab-position .tab.active:hover {
-	border: solid var(--colorbg);
-		border-radius: 1px;
+	transform: scale(1.05);
+	transition: .2s ease-out !important;
 }
 .tab-position.is-substack > .tab.active {
 	margin-bottom: 0px !important;
