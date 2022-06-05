@@ -45,6 +45,7 @@ font-;
 	min-height: 30px;
 }
 
+
 .maximized #tabs-container .resize {
     min-height: 30px;
     margin-top: 0px;
@@ -280,4 +281,21 @@ filter: opacity(0.65);
 .color-behind-tabs-on .bookmark-bar {
      background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
      background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
+}
+.bookmark-bar .observer {
+	background: transparent;
+}
+.toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
+	filter: opacity(0.8);
+}
+.bookmark-bar button:hover {
+	border-radius: 5px; background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBg) !important; 
+	transition: .3s ease-out !important;
+	transform: scale(1.05); transition: transform .2s ease-in-out !important;
+	}
+.bookmark-bar button {
+	border-radius: 0px 0px var(--radiusHalf) var(--radiusHalf);
+    border: 1px solid;
+    border-color: var(--colorAccentBgDarker);
 }
