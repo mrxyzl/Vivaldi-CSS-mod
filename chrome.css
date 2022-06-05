@@ -367,9 +367,5 @@ transition-delay: 0s;
 
 #main .inner {
 	position: relative;
-}
-.bookmark-bar {
-    position: absolute !important;
-    z-index: 15;
-    height: 100%;
+	top: -2vw;
 }
