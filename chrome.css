@@ -335,13 +335,14 @@ width: 100%;
 max-height: 2vw;
 opacity: 0;
 z-index: 1;
+transition-delay: 1s;
 transition: max-height .5s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity .2s linear .2s;
 }
 
 #browser.tabs-top.address-top.bookmark-bar-top .bookmark-bar:hover {
 	max-height: 30px;
 opacity: 1;
-transition-delay: 0s;
+transition-delay: 0.5s;
 }
 
 /*Bookmark are overlays instead of resizing the page*/
