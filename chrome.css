@@ -357,3 +357,19 @@ transition-delay: 0.3s;
 	background-image: linear-gradient(var(--colorBgAlphaHeavy), var(--colorBgAlpha));
     border-radius: var(--radiusHalf);
 }
+/*Auto hide panel bar*/
+.maximized .bookmark-bar {
+position: fixed;
+width: 100%;
+max-height: 30px;
+opacity: 0;
+z-index: 1;
+transition: max-width .5s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity .2s linear .2s;
+}
+.maximized .bookmark-bar:hover {
+max-height: 30px;
+opacity: 1;
+transition-delay: 0.5s;
+animation: dropfade 200ms ease-out;
+animation-delay: 0.5s;
+}
