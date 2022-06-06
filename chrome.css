@@ -19,7 +19,6 @@
 
 .UrlFragment-HostFragment-Subdomain:not([data-content="www."]){ 
 color:var(--colorImageFg, var(--colorAccentFg)); 
-font-;
 }
 .UrlFragment-Wrapper {
 	color:var(--colorImageFg, var(--colorAccentFg));
@@ -168,9 +167,12 @@ font-;
 /* Change toolbar button and extension button color same as tab bar's button */
 .toolbar-mainbar > .button-toolbar > button, .toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
 color: var(--colorImageFg, var(--colorAccentFg));
-filter: opacity(0.65);
+opacity:0.65;
 }
 
+.toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
+    filter: opacity(1);
+}
 /* ###################################################################################################################################### */
 
 
@@ -328,23 +330,24 @@ transition-delay: 0s;
 	right: 0;
 }
 
+/* ###################################################################################################################################### */
 
 /* Auto hide bookmark bar */
 
 .maximized .bookmark-bar {
 	top: 30px;
 	width: 100%;
-    max-height: 2vw;
     opacity: 0;
     z-index: 1;
     transition-delay: 1s;
-    transition: max-height .5s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity .2s linear .2s;
+    
 }
 .maximized .bookmark-bar:hover {
 	top: 30px;
-	max-height: 30px;
 	opacity: 1;
 	transition-delay: 0.5s;
+	animation: dropfade 200ms ease-out;
+	border:none;
 }
 .bookmark-bar {
 	top: 62px;
@@ -360,6 +363,7 @@ transition-delay: 0s;
 	max-height: 30px;
 	opacity: 1;
 	transition-delay: 0.5s;
+	border:none;
 }
 
 
@@ -368,4 +372,27 @@ transition-delay: 0s;
 #main .inner {
 	position: relative;
 	top: -2vw;
+}
+
+/* ###################################################################################################################################### */
+
+.button-popup {
+	background-color: var(--colorAccentBgAlphaHeavy);
+    backdrop-filter: blur(1.5em);
+    box-shadow: 0 0 0 1px var(--colorAccentBgAlphaHeavy), 0 2px 6px rgba(0, 0, 0, 0.25);
+	border-radius: var(--radius)
+}
+.toolbar-mainbar {
+	background:transparent;
+}
+.button-popup-below.button-popup-arrow-light:before {
+    border-bottom-color: var(--colorAccentBgAlphaHeavy);
+}
+.button-popup-below:before {
+    filter: drop-shadow(0 -1px var(--colorAccentBg));
+}
+
+.color-behind-tabs-on .toolbar-mainbar .toolbar-extensions > .button-toolbar > button.button-pressed, .color-behind-tabs-on .toolbar-mainbar > .button-toolbar > button.button-pressed {
+	background-image: linear-gradient(var(--colorBgAlphaHeavy), var(--colorBgAlpha));
+    border-radius: var(--radiusHalf);
 }
