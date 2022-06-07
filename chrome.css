@@ -42,6 +42,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 	padding-top: 0px !important;
 	margin-top: 0px;
 	min-height: 30px;
+	transition: 0.3s;
 }
 
 
@@ -74,9 +75,13 @@ color:var(--colorImageFg, var(--colorAccentFg));
     background: var(--colorAccentBg) !important;
 	border: none !important;
 }
-
+.maximized .toolbar-mainbar {
+	background:transparent;
+	border-radius: var(--radiusHalf);
+}
 .toolbar-mainbar {
      background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+	 	transition: 0.7s ease-out;
 }
 
 .maximized .win.normal .toolbar-mainbar {
@@ -85,10 +90,15 @@ color:var(--colorImageFg, var(--colorAccentFg));
 	border-radius: var(--radiusHalf)!important;
 }
 
+.color-behind-tabs-on#browser.tabs-top #header {
+	transition:0.7s ease-out;
+}
+
 .maximized .toolbar-extensions {
     position: absolute !important;
     transform: translate(-100%, 0);
     background-color: var(--colorAccentBg) !important;
+	transition: background-color 0.7s ease-out;
     left: calc(100vw - 205px) !important;  /* Adjust acordingly*/
 	height: 30px !important;
 	top: 0px;
@@ -263,7 +273,7 @@ opacity:0.65;
 #browser.color-behind-tabs-on .tab-position .tab.active.active {
     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
     color: var(--colorFg);
-	transition: .4s ease-out !important;
+	transition: 0.3s ease-out !important;
 }
 
 /* ###################################################################################################################################### */
@@ -282,15 +292,13 @@ opacity:0.65;
 }
 .color-behind-tabs-on .bookmark-bar {
      background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
-     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+     transition: background-color 0.7s ease-out;
 }
 }
 .bookmark-bar .observer {
 	background: transparent;
 }
-.toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
-	filter: opacity(0.8);
-}
+
 .bookmark-bar button:hover {
 	border-radius: 5px; background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBg) !important; 
 	transition: .3s ease-out !important;
@@ -345,6 +353,7 @@ transition-delay: 0.3s;
 }
 #main { 
 	background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+	transition: background-color 0.7s ease-out;
 }
 .button-popup-below.button-popup-arrow-light:before {
     border-bottom-color: var(--colorAccentBgAlphaHeavy);
@@ -373,3 +382,4 @@ transition-delay: 0.5s;
 animation: dropfade 200ms ease-out;
 animation-delay: 0.5s;
 }
+
