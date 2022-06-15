@@ -1,0 +1,1040 @@
+/* popup page zoom control */
+
+#browser > footer .page-zoom-controls input[type=range] {position: absolute; background-image: linear-gradient(90deg, #0000 0 calc(22% - 2px), var(--colorBg) 0 22%, #0000 0 calc(40% - 2px), var(--colorBg) 0 40%, #0000 0 calc(58% - 2px), var(--colorBg) 0 58%, #0000 0 calc(77% - 2px), var(--colorBg) 0 77%, #0000 0 100%); box-shadow: 0 0 0 7px var(--colorBg), 0 0 0 8px var(--colorBorder), 0 2px 12px hsl(0deg 0% 0% / 25%); visibility: hidden; opacity:0; transform: translate(-25px, -20px); transition: visibility .6s, opacity .2s ease-out .4s, transform .25s ease-in .36s !important;}
+#browser > footer .page-zoom-controls:is(:hover, :focus-within) > input[type=range] {visibility: visible; opacity: 1; transform: translate(-25px, -25px); transition: opacity: .1s ease-out .12s, transform .1s ease .1s !important;}
+#browser > footer .page-zoom-controls input[type=range]::before {content: ''; position: absolute; pointer-events: none; border: 6px solid hsl(0deg 0% 0% / 0%); z-index: inherit; filter: drop-shadow(0 1px var(--colorBorder)); bottom: -19px; left: 50%; margin-left: -6px; border-top-color: var(--colorBgLight);}
+#browser > footer .page-zoom-controls .zoom-percent {order:-1;} /* move % to left */
+#browser > footer .page-zoom-controls .reset-zoom button .button-title {min-width: 1ch; max-width: 1ch;} /* reduced Reset to R button */
+
+/* ###################################################################################################################################### */
+
+/* Secure domain green highlighter  */
+.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD {-webkit-text-stroke-width: 0px; text-shadow: none;}
+.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen;} /*.UrlFragment-Wrapper is for ellipsis, dont use this on full URL */
+
+/* warning domain pink highlighter */
+.UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper) {color: var(--colorImageFg, var(--colorAccentFg)); font-style: italic; }
+
+.SiteInfoButton.warning {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	font-weight: bold;
+	animation: wiggle 2000ms ease-in-out;
+	animation-delay: 200ms;
+	animation-iteration-count: 3;
+	opacity: 0.85;
+}
+@keyframes bounce {
+        0%   { transform: scale(1,1)      translateY(0); }
+        10%  { transform: scale(1.1,.9)   translateY(0); }
+        30%  { transform: scale(.9,1.1)   translateY(-5px); }
+        50%  { transform: scale(1.05,.95) translateY(0); }
+        57%  { transform: scale(1,1)      translateY(-2px); }
+        64%  { transform: scale(1,1)      translateY(0); }
+        100% { transform: scale(1,1)      translateY(0); }
+    }
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-5deg);
+  }
+  20% {
+    transform: rotateZ(5deg);
+  }
+  25% {
+    transform: rotateZ(-4deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+.UrlFragment-HostFragment-Subdomain:is([data-content="www."]){ 
+color:var(--colorImageFg, var(--colorAccentFg)); 
+display:none;
+}
+.UrlFragment-Wrapper {
+	/*color:var(--colorImageFg, var(--colorAccentFg));*/
+	text-shadow: none;
+	opacity:1;
+	filter: saturate(140%);
+}
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input {
+color:var(--colorImageFg, var(--colorAccentFg));
+background: transparent;
+border-radius: var(--radius);
+height: 24px;
+bottom: 2px;
+animation: none !important;
+}
+
+/* ###################################################################################################################################### */
+
+}
+ #tabs-container.top {
+	transition: 0.3s;
+
+}
+
+
+.toolbar-mainbar {
+     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+	 border-radius: var(--radiusHalf)!important;
+	 transition: 0.7s ease-out;
+	 background: transparent;
+	 border: none !important;
+}
+#main, #browser {
+    background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker)!important;
+	transition: 0.7s ease-out; 
+}
+.mainbar {
+	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker)!important;
+	border-radius: var(--radiusHalf)!important;
+	transition: 0.7s ease-out; 
+}
+.color-behind-tabs-on#browser.tabs-top #header {
+	transition:0.7s ease-out;
+}
+
+.toolbar-extensions {
+    background-color: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker) !important;
+	transition: background-color 0.7s ease-out;
+	border-radius: var(--radiusHalf)!important;
+}
+.toolbar-mainbar .toolbar-extensions {
+	background-color: transparent;
+}
+.toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
+	 display: none !important;
+}
+
+ #header, #main {
+    position: unset;
+}
+
+ #header {
+    height: unset;
+	min-height:25px;
+	background:linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
+#titlebar #pagetitle {
+	justify-items: center;
+	overflow: hidden;
+}
+.color-behind-tabs-on#browser:not(.tabs-top) #header {
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+
+
+
+	
+.color-behind-tabs-on#browser:not(.tabs-top) #header {
+	background-color: var(--colorAccentBg);
+}
+ .toolbar-tabbar.sync-and-trash-container {
+		top: 0px !important;
+}
+
+
+/* ###################################################################################################################################### */
+
+/* Change toolbar button and extension button color same as tab bar's button */
+.toolbar-mainbar > .button-toolbar > button, .BookmarkButton, .toolbar-insideinput.toolbar-insideinput.toolbar-insideinput > .button-toolbar button:not(:hover):not(:active):not(:focus):not(.button-pressed) { 
+color: var(--colorImageFg, var(--colorAccentFg));
+opacity:0.8;
+}
+.toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
+	color: var(--colorImageFg, var(--colorAccentFg));
+opacity:0.85;
+}
+
+.toolbar-mainbar .toolbar-extensions > .button-toolbar > button {
+    filter: opacity(1);
+}
+.SiteInfoButton.secure svg path, .SiteInfoButton.certified svg path{
+    fill: var(--colorImageFg, var(--colorAccentFg));
+}
+}
+.toolbar-insideinput.toolbar-insideinput.toolbar-insideinput > .button-toolbar button.button-pressed, .toolbar-insideinput.toolbar-insideinput.toolbar-insideinput > .toolbar-group > .button-toolbar button.button-pressed {
+	background-image: linear-gradient(var(--colorBgAlphaHeavy), var(--colorBgAlpha));
+    border-radius: var(--radiusHalf);
+	opacity: 0.65;
+}
+	
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input {
+color:var(--colorImageFg, var(--colorAccentFg));
+}
+.SiteInfoButton-Favicon, .SiteInfoButton-SearchEngineFavicon, .SiteInfoButton-SecurityBadge {
+	color:var(--colorImageFg, var(--colorAccentFg));
+}
+
+/* ###################################################################################################################################### */
+
+
+/* Colorful Pageload indicator */
+.UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator { /* Progress bar background before load */
+	border-radius: 6px !important;  /* Progress bar background before load roundness */
+    background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), var(--colorAccentBgAlpha);
+	opacity:0.8;
+	top: 0px;
+	height:24px;
+	left: 0px;
+}
+.UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator::-webkit-progress-value { /* the progressbar */
+        background-color: var(--colorAccentBgAlpha);
+		border-radius:5px;
+		opacity: 1;
+
+}
+.SearchField, .UrlBar-AddressField {
+    border-radius: 8px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), var(--colorAccentBg);
+	opacity:1;
+	border:  none;
+	height:24px;
+	top: 0px;
+}
+ .UrlBar-AddressField .pageload .pageload-ticker {
+	 color: var(--colorImageFg, var(--colorAccentFg));
+ }
+/* Disable page load ticket */
+
+
+/* background-color: linear-gradient(to right, rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), var(--colorAccentBgAlpha); */
+/* ###################################################################################################################################### */
+
+
+/* Stylish toolbar button animation */
+.button-toolbar > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.button-toolbar:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .15s ease-in-out !important;}
+.toolbar-mainbar .toolbar-extensions > .button-toolbar > button:hover {border-radius: 30%; background: transparent; transition: .3s ease-out !important;}
+.vivaldi:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.vivaldi:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.1); transition: transform .15s ease-in-out !important;} 
+.icons #switch > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.icons #switch > button:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .3s ease-in-out !important;}
+.button-toolbar > button {
+	border: none;
+}
+.BookmarkButton {
+	border: none;
+}
+/* ###################################################################################################################################### */
+
+/* Tab stack frame border color fixer */
+.tabs-top .tab-position.is-substack .tab:not(.active) .svg-tab-stack{
+	padding-bottom: 0px !important;
+}
+.svg-tab-stack .stack-frame {
+    stroke: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.3;
+}
+.tabs-subcontainer {
+	height:30px;
+}
+
+.tabs-top .tab-position.is-substack .tab {
+	border-radius: var(--radiusHalf);
+}
+	
+.tabs-subcontainer {
+	height:30px;
+}
+
+/* Fix round corner 1px line tab bar */
+.tab.active:not(.marked):not(.tab-mini):before {
+    left: calc(1.1px - var(--radiusHalf));
+	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
+.tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
+    right: calc(1.8px - var(--radiusHalf));
+	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
+
+/* ###################################################################################################################################### */
+
+/* Stylish Animate tab highlight on hover*/
+.tab-position .tab:not(.active):hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), var(--colorAccentBg);
+	border-radius: var(--radiusHalf) var(--radiusHalf) 0 0;
+	transition: .2s ease-out !important;
+}
+.tab-position .tab:not(.active):hover .tab-header {
+	transform: scale(1.05);
+	transition: .2s ease-out !important;
+}
+.tabs-top .tab-position.is-substack .tab:hover {
+	background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), var(--colorAccentBgAlpha);
+	border-radius: var(--radiusHalf)!important;
+	transition: .2s ease-out !important;
+}
+	
+.tabs-subcontainer {
+	height:30px;
+}
+
+	
+#browser .tab-position .tab.active:hover {
+	transform: scale(1.05);
+	transition: .2s ease-out !important;
+}
+.tab-position.is-substack > .tab.active {
+	margin-bottom: 0px !important;
+}
+#browser.color-behind-tabs-on .tab-position .tab.active.active {
+    background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+    color: var(--colorFg);
+	transition: 0.3s ease-out !important;
+}
+
+/* ###################################################################################################################################### */
+
+/* Change address bar text selection follow Accent*/
+
+::selection {
+  background-color: var(--colorAccentBgAlpha);
+  color: var(--colorImageFg, var(--colorAccentFg));
+}
+/* ###################################################################################################################################### */
+
+/* Change bookmark bar color follow Accent*/
+.color-behind-tabs-on .bookmark-bar button {
+   background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
+.color-behind-tabs-on .bookmark-bar {
+     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+     transition: background-color 0.7s ease-out;
+}
+}
+.bookmark-bar .observer {
+	background: transparent;
+}
+
+.bookmark-bar button:hover {
+	border-radius: 5px; background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBg) !important; 
+	transition: .3s ease-out !important;
+	transform: scale(1.05); transition: transform .2s ease-in-out !important;
+	}
+.bookmark-bar button {
+	border-radius: 0px 0px var(--radiusHalf) var(--radiusHalf);
+    border: 1px solid;
+    border-color: var(--colorAccentBgDarker);
+}
+.bookmark-bar button .title {
+	color:var(--colorImageFg, var(--colorAccentFg));
+}
+/* ###################################################################################################################################### */
+
+/*Auto hide panel bar 
+#panels-container {
+position: fixed;
+height: 100%;
+max-width: 0vw;
+opacity: 0;
+z-index: 1;
+transition: max-width .5s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity .2s linear .2s;
+}
+#panels-container:hover {
+max-width: 99vw;
+opacity: 1;
+transition-delay: 0.3s;
+}
+
+/*Panel are overlays instead of resizing the page 
+#main .inner {
+	position: relative;
+}
+#panels-container {
+    position: absolute !important;
+    z-index: 15;
+    height: 100%;
+}
+#panels-container.right {
+	right: 0;
+}
+/* 
+
+/* ###################################################################################################################################### */
+/*Colorful extension popup*/
+
+.button-popup-left.button-popup-below {
+    box-shadow: 0 0 0 1px var(--colorAccentBgAlphaHeavy), 0 2px 6px rgba(0, 0, 0, 0.25);
+	border-radius: var(--radius);
+	background:transparent;
+}
+#browser > div.extensionIconPopupMenu.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-light > div {
+	    background-color: var(--colorAccentBgAlphaHeavy);
+    backdrop-filter: blur(1.2em) brightness(55%) !important;
+}
+.toolbar-mainbar {
+	background:transparent;
+}
+#main { 
+	background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+	transition: background-color 0.7s ease-out;
+}
+.button-popup-below.button-popup-arrow-light:before {
+    border-bottom-color: var(--colorAccentBgAlphaHeavy);
+}
+.button-popup-below:before {
+    filter: drop-shadow(0 -1px var(--colorAccentBg));
+}
+
+.color-behind-tabs-on .toolbar-mainbar .toolbar-extensions > .button-toolbar > button.button-pressed, .color-behind-tabs-on .toolbar-mainbar > .button-toolbar > button.button-pressed {
+	background-image: linear-gradient(var(--colorBgAlphaHeavy), var(--colorBgAlpha));
+    border-radius: var(--radiusHalf);
+}
+
+/* ###################################################################################################################################### */
+
+/*Auto hide bookmark bar*/
+
+/* Simple Automate Bookmark-bar */
+
+/* top bookmark-bar 
+.bookmark-bar-top .bookmark-bar {
+	margin-bottom: -28px; z-index: 1; 
+	transform: translateY(0);
+	transition: transform .3s ease-out;
+	transition-delay: 0.5s;
+	}
+.bookmark-bar-top .bookmark-bar::before {content: ''; position: absolute; height: 20px; width: 100%; top: 100%;}
+
+/* option A: trigger zone below lowest TOP bar 
+.bookmark-bar-top .bookmark-bar:not(:focus-within):not(:hover) {
+	transform: translateY(-100%);  
+	transition: transform .2s ; 
+	transition-delay: 1.5s;
+
+	}
+/*
+animation: dropfade 2s ease-out;
+animation-delay: 1s;
+} */
+
+	
+.bookmark-bar-top .bookmark-bar {
+	border:none;
+}
+
+
+/* Beautify adblocker content */
+
+
+#app .ContentBlocker-Header {
+	background: transparent;
+    border-bottom-color: transparent;
+}
+#app .ContentBlocker.button-popup {
+    border-radius: var(--radius);
+}
+
+button.privacy-btn-icon, #app .ContentBlocker-Field input[type=button], #app .ContentBlocker-Blocked {
+    background-image: none;
+    backdrop-filter: blur(1.5em) brightness(0.5);
+    background-color: transparent;
+    border: none;
+}
+#browser > div.ContentBlocker.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-right.button-popup-below.button-popup-arrow-dark {
+	background: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.75);
+}
+.button-popup {
+	color:var(--colorImageFg, var(--colorAccentFg));
+}
+/* Beautify status bar */
+:not(.tabs-bottom)#browser > footer {
+    background: var(--colorAccentBgDarker);
+	box-shadow: inset -1px 0 5 var(--colorBorder);
+	backdrop-filter: var(--backgroundBlur);
+	transition: 0.7s
+}
+#browser > footer > .toolbar-statusbar {
+	background-color: var(--colorBgAlphaBlur);
+}
+/* BEautify panel */
+
+
+
+#panels-container.overlay .panel-group {
+background-color: var(--colorAccentBgAlpha);
+}
+.panel-group {
+	background-color: var(--colorAccentBgAlphaHeavy);
+    backdrop-filter: blur(1.2em) brightness(0.55);
+
+}
+
+.toolbar.toolbar-default.toolbar-wrap > input[type=search] {
+	background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: transparent;
+    border: none;
+}
+.toolbar.toolbar-default.toolbar-medium.toolbar-wrap > input[type=search] {
+	background-color: var(--colorAccentBgAlphaHeavy);
+}
+.toolbar.toolbar-default.toolbar-wrap > div > div.toolbar-group > div:nth-child(2) > button {
+	background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: var(--colorAccentBgAlphaHeavy);
+    border: none;
+}
+.toolbar.toolbar-default.toolbar-wrap > div > div.toolbar-group > div:nth-child(1) > button {
+	background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: var(--colorAccentBgAlphaHeavy);
+    border: none;
+}
+.toolbar.toolbar-default.toolbar-wrap > div > div.toolbar-group > div:nth-child(3) > button {
+	background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: var(--colorAccentBgAlphaHeavy);
+    border: none;
+}
+.toolbar.toolbar-default.toolbar-wrap > div > div.toolbar-group > div:nth-child(4) > button {
+	background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: var(--colorAccentBgAlphaHeavy);
+    border: none;
+}
+.toolbar-default .button-toolbar, .toolbar.toolbar-default.toolbar-wrap > input[type=search] {
+	color:var(--colorImageFg, var(--colorAccentFg));
+}
+
+.toolbar.toolbar-default.toolbar-wrap > div > div.button-toolbar > button,  {
+	background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: transparent;
+    border: none;
+}
+
+.panel-group .sortselector.sortselector-compact, .download-popout .sortselector.sortselector-compact {
+	background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: transparent;
+    border: none;
+}
+.sortselector .sortselector-button:hover:not(:disabled), .sortselector .sortselector-dropdown:hover:not(:disabled), .sortselector .sortselector-button:focus-visible, .sortselector .sortselector-dropdown:focus-visible {
+	background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;
+	transform: scale(1); transition: transform .15s ease-in-out !important;
+	border: none;
+	}
+.sortselector-button.direction-ascending {
+	border-color: var(--colorAccentBgAlpha);
+}
+.sortselector-dropdown {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+}
+.panel .tree-row {
+	color: var(--colorImageFg, var(--colorAccentFg));
+opacity: 0.9;
+}
+
+.toolbar.toolbar-default.toolbar-align-top {
+	color: var(--colorImageFg, var(--colorAccentFg));
+opacity: 0.75;
+}
+.sortselector.sortselector-compact .sortselector-button {
+	fill: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+}
+.panel.downloads .download-editor .data, .popout.downloads-popout .download-editor .data {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+}
+.panel-timefield > .container {
+	color: var(--colorImageFg, var(--colorAccentFg));
+opacity: 0.75;
+}
+.cardview input[type=text].downloads, .cardview input[type=email].downloads, .cardview input[type=tel].downloads, .panel.downloads .panel-timefield .started, .popout.downloads-popout .panel-timefield .started, .panel.downloads .panel-timefield .completed, .popout.downloads-popout .panel-timefield .completed, .panel.downloads .panel-pathfield .speed, .popout.downloads-popout .panel-pathfield .speed, .panel.downloads {
+	color: var(--colorImageFg, var(--colorAccentFg));
+opacity: 0.75;
+}
+select:not([multiple]):not([size]), input[type=date] {
+	backdrop-filter: blur(1.2em) brightness (0.5);
+	background-color: var(--colorAccentBgAlpha);
+	background-image: conic-gradient(at 50% 50%,var(--colorImageFg, var(--colorAccentFg)) 45deg,transparent 0, transparent 315deg, var(--colorImageFg, var(--colorAccentFg)) 0);
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    background-position: 92% 10px;
+}
+select {
+	color: var(--colorImageFg, var(--colorAccentFg));
+    opacity: 0.75;
+}
+.panel-pathfield .speed span svg, .popout.downloads-popout .panel-pathfield .speed span svg {
+	fill: var(--colorImageFg, var(--colorAccentFg));
+opacity: 0.75;
+}
+
+
+.toolbar-default .button-toolbar > button:disabled {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border: none;
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+    
+}
+select:not([multiple]):not([size]) option {
+    color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.85;
+    background-color: var(--colorAccentBg) !important;
+}
+
+#history-panel > header > div.toolbar.toolbar-default.toolbar-wrap > select {
+	background-color: var(--colorAccentBgAlpha);
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+
+.history .vivaldi-tree .tree-row.folder, #history-panel .vivaldi-tree .tree-row.folder {
+	color:var(--colorImageFg, var(--colorAccentFg));
+    background-color: var(--colorAccentBgAlphaHeavy);
+    border: none;
+	border-radius: var(--radiusHalf);
+	backdrop-filter: blur(1.2em);
+}
+.sortselector.sortselector-compact .sortselector-button {
+	border-color:var(--colorAccentBgFadedMost);
+}
+
+.toolbar-default .button-toolbar > button:enabled {
+	background-image: linear-gradient(var(--colorAccentBgAlphaHeavy), var(--colorAccentBgAlphaHeavy));
+}
+.NotesEditor-Editor-Background {
+	color:var(--colorImageFg, var(--colorAccentFg));
+    background-color: transparent;
+    border: none;
+	border-radius: var(--radiusHalf);
+	backdrop-filter: blur(1.2em);
+}
+.textarea.NotesEditor-Editor {
+	color:var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+    background-color: transparent;
+    border: none;
+	border-radius: var(--radiusHalf);
+	backdrop-filter: blur(1.2em);
+}
+.cardview.cardview .NotesEditor-Editor {
+	color:var(--colorImageFg, var(--colorAccentFg));
+    background-color: transparent;
+    border: none;
+	border-radius: var(--radiusHalf);
+	backdrop-filter: blur(1.2em);
+}
+.NotesEditor-Editor-Background:after {
+	background-color: transparent;
+	backdrop-filter: blur(1.2em) brightness(65%);
+    border: none;
+	border-radius: var(--radiusHalf);
+}
+.NotesEditor-EmptyPlaceholder:hover {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	transition: 0.3s ease-out;
+}
+
+.panel.downloads .panel-pathfield .action-button, .popout.downloads-popout .panel-pathfield .action-button { 
+	background-color: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(85%);
+    border: none;
+}
+.panel.downloads .panel-pathfield .action-button:hover, .popout.downloads-popout .panel-pathfield .action-button:hover { 
+background-color: var(--colorAccentBg);
+transition: 0.3s ease-out;
+transform: scale(1.1);
+}
+input[type=button]:not(.circular), input[type=submit], input[type=color], .FormButton,  {
+	color:var(--colorImageFg, var(--colorAccentFg));
+	background-image:none;
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border: none;
+}
+}
+input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=color]:hover, .FormButton:hover {
+	background-image:none;
+		background-color: var(--colorAccentBg);
+}
+
+.addwebpanel-wrapper .addwebpanelcallout {
+	background: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)), var(--colorAccentBgFadedMore);
+    border: none;
+	border-radius: var(--radiusHalf);
+	box-shadow: 0 0 0 1px rgb(0 0 0 / 0%), 0 2px 6px rgb(0 0 0 / 20%);
+    border-radius: var(--radius);
+	backdrop-filter: blur(1.2em);
+}
+
+#switch .addwebpanel-wrapper > button.addwebpanel:hover {
+border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transform: scale(1.1); transition: .3s ease-out !important;}
+#panels.leak #switch .addwebpanel {
+	margin-bottom: 1px;
+}
+.right .addwebpanel-wrapper .addwebpanelcallout:before, .right .addwebpanel-wrapper .addwebpanelcallout:after {
+	border-left-color: var(--colorAccentBgDarker);
+	filter:brightness(0.5);
+}
+
+textarea {
+    background: var(--colorAccentBgAlphaHeavy);
+    border: 1px solid var(--colorAccentBgFadedMore);
+color:var(--colorImageFg, var(--colorAccentFg));
+}
+.panel .TranslatePanel-SrcText, .panel .TranslatePanel-TranslatedText {
+	color:var(--colorImageFg, var(--colorAccentFg));
+	background-color: var(--colorAccentBgAlphaHeavy);
+}
+
+
+.theme-dark input[type=radio], .theme-dark input[type=checkbox] {
+    background-image: linear-gradient(180deg, transparent -150%, var(--colorAccentBgFadedMost) 200%);
+    border-color: var(--colorFgAlpha);
+}
+input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=color]:hover, .FormButton:hover {
+	background-color: var(--colorAccentBgAlpha);
+	transform: scale(1.1);
+	transition: 0.3s ease-out;
+	background-image: none;
+}
+.panel .tree-row:hover {
+	background-color: var(--colorAccentBgAlpha);
+	transform: scale(1.05);
+	transition: 0.3s ease-out;
+	background-image: none;
+}
+#translate-panel > form > div.TranslatePanel-FromTo.toolbar.toolbar-default {
+	color:var(--colorImageFg, var(--colorAccentFg));
+}
+input[type=button]:not(.circular), input[type=submit], input[type=color], .FormButton {
+	background-image: none;
+	color:var(--colorImageFg, var(--colorAccentFg));
+	
+}
+
+/* Beautify Omni dropdown */
+
+.OmniDropdown {
+	background-color: var(--colorAccentBgAlphaHeavy);
+    backdrop-filter: blur(1.2em) brightness(0.7);
+	animation: dropfade 400ms ease-out;
+	transition: 0.4s;
+}
+
+.omni-clickable.OmniLinkItem:hover {
+    background-image: none;
+    backdrop-filter: blur(1.5em);
+    background-color: transparent;
+    border: none;
+	color: var(--colorImageFg, var(--colorAccentFg));
+	
+}
+.OmniLinkItem-Url, .OmniLinkItem-Details, .OmniLinkItem-Favicon, .OmniLinkItem-EraseButton {
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+	
+	
+/*Beautify Transalte popup*/	
+	
+.button-popup-left.button-popup-below {
+    border-top-right-radius: 0;
+	backdrop-filter: none;
+}
+
+#modal-bg.slide > div {
+	background: var(--colorAccentBgAlphaHeavy);
+    border: none;
+	border-radius: var(--radiusHalf);
+	box-shadow: 0 0 0 1px rgb(0 0 0 / 0%), 0 2px 6px rgb(0 0 0 / 20%);
+    border-radius: var(--radius);
+	backdrop-filter: blur(1.2em) brightness(0.65);
+}
+.TranslatePopup {
+    background-color: transparent;
+}
+
+.TranslatePopup-Buttons-MenuButton:hover {
+    background-color: var(--colorAccentBgAlpha);
+	transform: scale(1.05);
+	transition: 0.3s ease-out;
+	background-image: none;
+}
+
+.TranslatePopup .dialog-content {
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+.TranslatePopup-Header h3 {
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+input[type=button]:not(.circular)[type=submit], input[type=submit][type=submit], input[type=color][type=submit], .FormButton[type=submit], input[type=button]:not(.circular).primary, input[type=submit].primary, input[type=color].primary, .FormButton.primary {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+}
+input[type=button]:not(.circular).primary:hover {
+	transform: scale(1.02);
+	transition: 0.3s ease-out;
+}
+	
+.button-popup.ToolbarButtonPopup-DefaultStyles label span, .TranslatePopup-FooterText {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+	}
+input[type=button]:not(.circular).primary:not([disabled]) {
+border-color: var(--colorAccentBgAlpha);
+}
+
+.TranslatePopup-Buttons-MenuButton {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border-color: var(--colorAccentBgAlphaHeavy) !important;
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+}
+
+button, input, select, textarea, input[type=text], input[type=search], input[type=password], input[type=email], input[type=url], input[type=number], input[type=radio], input[type=date], input[type=time], input[type=checkbox], input[type=button], input[type=submit] {
+    border-color: var(--colorAccentBgAlpha);
+    background-color: var(--colorAccentBgAlpha);
+	color: color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+#modal-bg > div > div > footer {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border-color: var(--colorAccentBgAlpha);
+}
+#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark > div > footer {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border-color: var(--colorAccentBgAlpha);
+}
+
+#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark > div {
+background: transparent;
+}
+
+/*Beautify bookmark popup*/
+
+.BookmarkPopup {
+    background-color: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.75);
+	border-radius:var(--radius);
+color: var(--colorImageFg, var(--colorAccentFg));
+}
+#browser > div.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > form > header {
+	background: transparent;
+}
+.DialogContent {
+   background-color: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.65);
+}
+
+.BookmarkLocationSelector-ToggleButtonGroup-Button:focus-visible, .BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed {
+	 background-color: var(--colorAccentBgAlpha);
+	 color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+.BookmarkInputField-Input {
+	    padding: 10px !important;
+}
+.BookmarkInputField {
+    border-bottom: 1px solid var(--colorAccentBgAlpha);
+}
+	
+#browser > div.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > form > footer {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border-color: var(--colorAccentBgAlpha);
+}
+.DialogHeader-HeaderText {
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+.BookmarkInputField-Title {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.75;
+}
+
+.BookmarkLocationSelector-ToggleButtonGroup-Button {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.65;
+}
+
+.BookmarkButton-Button .ToolbarButton-Button {
+}
+
+.BookmarkButton-Button .ToolbarButton-Button.button-pressed {
+    background-color: var(--colorAccentBgDark);
+}
+.BookmarkButton--Active {
+    background-color: transparent;
+}
+
+/*Beautify QR share popup*/
+
+.qr-share-dialog {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.75);
+	border-radius: var(--radiusHalf);
+	border: none;
+}
+
+.button-popup-center {
+	background:transparent;
+	border:none;
+}
+.button-popup {
+    box-shadow: 0 0 0 0px var(--colorAccentBgAlpha), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > div > footer {
+background: transparent;
+border-color: var(--colorAccentBgAlpha);
+background-color: var(--colorAccentBgAlpha);
+}
+
+}
+.dialog-header, .dialog-footer {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	
+}
+
+.toolbar-insideinput.toolbar-insideinput.toolbar-insideinput > .button-toolbar button.button-pressed:not(:active), .toolbar-insideinput.toolbar-insideinput.toolbar-insideinput > .toolbar-group > .button-toolbar button.button-pressed:not(:active) {
+    box-shadow: unset;
+    background: var(--colorAccentBgAlphaHeavy);
+}
+
+.button-popup-below.button-popup-arrow-dark:before {
+    border-bottom-color: var(--colorAccentBgAlphaHeavy);
+}
+
+/* Only show domain and centered on addressbar */
+
+.UrlFragment-HostFragment-Subdomain {
+	display:unset;
+ /*Hide sub domain, the www stuff if you want*/
+} 
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div { /* only affect address bar url field */
+    justify-content: center; /*center url domain*/
+	overflow:hidden;
+	height: fit-content;
+    align-content: center;
+}
+
+
+
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div > div > span > span:not(:first-child) {
+	display:none; /*hide all part of URL except domain*/
+
+}
+
+input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop {
+	background: none;
+	color:var(--colorImageFg, var(--colorAccentFg));
+	
+}
+
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div > input:is(:hover):not(:focus)  {
+	transition: 0.3s ease-out;
+	opacity:1 !important;
+	background:transparent;
+	text-align: center;  /* center url text */
+	transition-delay: 0.3s;
+	
+}
+input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
+	opacity:1 !important;
+	background:transparent;
+	animation: rightfade 300ms ease-out;
+	text-align:left !important;
+	
+}
+@keyframes rightfade {
+  0% {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.UrlBar-UrlField:is(:hover, :focus) + .UrlFragment-Wrapper { /* Hide domain on hover or focus */
+	transition: 0.3s ease-out;
+	opacity:0 !important;
+	background:transparent;
+}
+
+.UrlFragment-Wrapper {
+	padding: 6px 16px 6px 6px; /*Fix some buggy padding on resize*/
+}
+
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div > input {
+	background: none;
+}
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input:hover {
+	animation: none !important; /* No repeating animation on hover while editting text */
+	text-align: left;
+}
+	
+	
+.UrlBar-UrlObfuscationWarning svg {
+	filter: invert(98%) sepia(100%) saturate(7500%) hue-rotate(357deg) brightness(102%) contrast(105%); !important;
+}
+
+
+/* Colorful addressbar on focus */
+
+.UrlBar-AddressField:hover,
+.UrlBar-SearchField:hover
+
+{background-color: var(--colorAccentBgFadedMore) !important;
+backdrop-filter: brightness (120%);
+border: none !important;
+transition: 0.5s ease-out;
+transition-delay: 0.3s;
+}
+
+.UrlBar-AddressField:is(:focus-visible, :focus-within) {
+    outline:2px solid  var(--colorAccentBgAlpha) !important;
+	transition: 0.3s ease-out;
+	background-color: var(--colorAccentBgFadedMost) !important;
+	backdrop-filter: brightness (120%);
+}
+
+/* Fix bookmark button in setting */
+
+.bookmark-folder-picker input[type=text] {
+	max-width:100%;
+	width: 100%;
+	text-overflow: ellipsis;
+	opacity:0;
+}
+select option {
+    background: var(--colorAccentBgDark);
+}
+#webpage-stack > div.webpageview.active.internal.visible.pagefocusstop > div.row-wrapper > div > div.internal-page > div > div.settings-content > section > div:nth-child(2) > div:nth-child(3) > div > span > select {
+    width: 120px;
+	background-color: var(--colorAccentBgAlpha);
+}
+
+#browser .max-bookmarks input[type='number'] {
+	padding: 2px 1px 2px 10px;
+}
+
+select {
+	width: 120px;
+	text-overflow: ellipsis;
+	border: none !important;
+	border-radius: var(--radius);
+}
+
+
+.dialog-download {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: brightness(0.01);
+}
