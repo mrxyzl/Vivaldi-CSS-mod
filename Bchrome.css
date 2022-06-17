@@ -426,7 +426,7 @@ animation-delay: 1s;
 
 
 #app .ContentBlocker-Header {
-	background: var(--colorAccentBgAlpha);
+	background: var(--colorAccentBgAlphaHeavy);
     border-bottom-color: transparent;
 }
 #app .ContentBlocker.button-popup {
@@ -442,6 +442,14 @@ button.privacy-btn-icon, #app .ContentBlocker-Field input[type=button], #app .Co
 .button-popup {
 	color:var(--colorImageFg, var(--colorAccentFg));
 }
+button.privacy-btn-icon:hover {
+	background-color: var(--colorAccentBgAlpha);
+	transform: scale(1.05);
+	transition: 0.3s ease-out;
+}
+#app .ContentBlocker-Blocked ul {
+	background-color: var(--colorAccentBgAlpha);
+}
 #browser > div.ContentBlocker.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark {
 		background: var(--colorAccentBgAlphaHeavy);
 	backdrop-filter: blur(1.2em) brightness(0.75);
@@ -455,6 +463,13 @@ button.privacy-btn-icon, #app .ContentBlocker-Field input[type=button], #app .Co
 }
 #browser > footer > .toolbar-statusbar {
 	background-color: var(--colorBgAlphaBlur);
+}
+
+#app .ContentBlocker-Label:hover {
+	background: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.75);
+	transform: scale(1.05);
+	transition: 0.3s ease-out;
 }
 /* Beautify panel */
 
@@ -613,7 +628,7 @@ select:not([multiple]):not([size]) option {
 
 .toolbar-default .button-toolbar > button:enabled {
 	background-image: none;
-	    background: var(--colorAccentBgAlpha);
+	background: var(--colorAccentBgAlpha);
 }
 .NotesEditor-Editor-Background {
 	color:var(--colorImageFg, var(--colorAccentFg));
@@ -667,7 +682,6 @@ input[type=button]:not(.circular), input[type=submit], input[type=color], .FormB
 }
 input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=color]:hover, .FormButton:hover {
 	background-image:none;
-		background-color: var(--colorAccentBg);
 }
 
 .addwebpanel-wrapper .addwebpanelcallout {
@@ -705,7 +719,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
     border-color: var(--colorFgAlpha);
 }
 input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=color]:hover, .FormButton:hover {
-	background-color: var(--colorAccentBgAlpha);
+	background-color: var(--colorAccentBgAlpha) !important;
 	transform: scale(1.1);
 	transition: 0.3s ease-out;
 	background-image: none;
@@ -858,6 +872,7 @@ animation: dropfade 300ms ease-out;
 #browser > div.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > form > footer {
 	background-color: var(--colorAccentBgAlphaHeavy);
 	border-color: var(--colorAccentBgAlpha);
+	backdrop-filter: brightness(0.1);
 }
 .DialogHeader-HeaderText {
 	color: var(--colorImageFg, var(--colorAccentFg));
@@ -871,8 +886,12 @@ animation: dropfade 300ms ease-out;
 .BookmarkLocationSelector-ToggleButtonGroup-Button {
 	color: var(--colorImageFg, var(--colorAccentFg));
 	opacity: 0.65;
+	background: var(--colorAccentBgAlpha);
 }
-
+.BookmarkLocationSelector-ToggleButtonGroup-Button:focus-visible, .BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed {
+	box-shadow: inset 0 -2px 0 0 var(--colorHighlightBg) !important;
+    backdrop-filter: brightness(0.1);
+}
 .BookmarkButton-Button .ToolbarButton-Button {
 }
 
@@ -1268,4 +1287,18 @@ background-color: var(--colorAccentBgAlphaHeavy);
  fill: var(--colorAccentBgFadedMost);
  filter:saturate(150%);
 
+}
+
+
+/*Animated trashbin */
+.toggle-trash:hover .trashicon-lid {
+    transform: rotateZ(30deg) translate(-1px, -1px);
+}
+/* Color stack counter */
+
+.tab-position .tab .stack-counter {
+	    background: var(--colorAccentBgAlpha);
+}
+.tab-position .tab.active .stack-counter {
+    background-color: var(--colorBgAlphaHeavier);
 }
