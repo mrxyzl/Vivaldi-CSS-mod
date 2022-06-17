@@ -207,7 +207,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 
 
 /* Stylish toolbar button animation */
-.button-toolbar > button:hover {border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.button-toolbar > button:hover {border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important; transform: scale(1.05);}
 .button-toolbar:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .15s ease-in-out !important;}
 .toolbar-mainbar .toolbar-extensions > .button-toolbar > button:hover {border-radius: 30%; background: transparent; transition: .3s ease-out !important;}
 .vivaldi:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
@@ -1301,4 +1301,32 @@ background-color: var(--colorAccentBgAlphaHeavy);
 }
 .tab-position .tab.active .stack-counter {
     background-color: var(--colorBgAlphaHeavier);
+}
+
+/* color clock */
+
+.button-popup.ToolbarButtonPopup-DefaultStyles h2, .ClockPopup-Header {
+	background: var(--colorAccentBgAlphaHeavy);
+	border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+	border-bottom: 1px solid var(--colorAccentBgFadedMore);
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+.ClockPopup .toolbar, .ClockPopup-Alarms, .ClockPopup-Countdowns, .ClockPopup-Preset, .ClockPopup-Preset-Clear, .ClockPopup-DateInputField.ClockPopup-DateInputField, .ClockPopup-Name.ClockPopup-Name  {
+    background-color: var(--colorAccentBgAlphaHeavy);
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+.ClockPopup-Preset-Clear > svg {
+    margin: 2px;
+}
+.ClockPopup-TimeField.ClockPopup-TimeField.ClockPopup-TimeField {
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+.ClockPopup-Spinner--up {
+    background-image: linear-gradient(55deg, transparent 53%, var(--colorAccentBgFadedMore) 55%), linear-gradient(125deg, var(--colorAccentBgFadedMore) 43%, transparent 45%), linear-gradient(var(--colorFg) 70%, var(--colorAccentBgFadedMore) 70%);
+	opacity:0.6;
+}
+.ClockPopup-Spinner--down {
+    background-image: linear-gradient(55deg, var(--colorAccentBgFadedMore) 43%, transparent 45%), linear-gradient(125deg, transparent 53%, var(--colorAccentBgFadedMore) 55%), linear-gradient(180deg, var(--colorAccentBgFadedMore) 30%, var(--colorFg) 30%);
 }
