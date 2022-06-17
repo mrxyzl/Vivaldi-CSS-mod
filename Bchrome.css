@@ -821,7 +821,7 @@ border-color: var(--colorAccentBgAlpha);
 
 button, input, select, textarea, input[type=text], input[type=search], input[type=password], input[type=email], input[type=url], input[type=number], input[type=radio], input[type=date], input[type=time], input[type=checkbox], input[type=button], input[type=submit] {
     border-color: var(--colorAccentBgAlpha);
-    background-color: var(--colorAccentBgAlpha);
+    background-color: var(--colorAccentBgAlphaHeavy);
 	color: color: var(--colorImageFg, var(--colorAccentFg));
 }
 
