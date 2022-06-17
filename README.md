@@ -12,7 +12,7 @@ creating an issue or posting question on Vivaldi forum
 Each mod contain a link to show how the mod look like:
 * [popup page zoom control](https://imgur.com/7yEE7YG) - whole credit to @dude99 on Vivaldi Forum
 * [Secure domain green highlighter and adaptive URL color](https://imgur.com/a/62oOW1c)- Credit to @dude99 on Vivaldi Forum and some more modification by me
-* [Merge tab bar and address bar (AKA One Line UI)](https://imgur.com/a/Upups22) - Credit to @oudstand on Vivaldi forum, some fix and modification by me - ABANDONNED  too much issuse when resize 
+* [Merge tab bar and address bar (AKA One Line UI)](https://imgur.com/a/Upups22) - Credit to @oudstand on Vivaldi forum, some fix and modification by me - ABANDONED  too much issuse when resize 
 * [Change toolbar button and extension button color same as tab bar's button](https://imgur.com/a/vP1FDyu) - by me
 * [Colorful Pageload indicator](https://imgur.com/a/VJBMTqH) - credit to @dude99 on Vivaldi forum - modified and fix by me
 * [Stylish toolbar button animation](https://forum.vivaldi.net/topic/48904/mainbar-buttons-highlight-animation-css-mod) - credit to @dude99 on Vivaldi forum, expand function by me
