@@ -1243,7 +1243,15 @@ background-color: var(--colorAccentBgAlphaHeavy);
 	opacity: 0.8;
 }
 
-
+/* Coloring the scroll bar */
 .theme-dark ::-webkit-scrollbar-thumb {
     background-color: var(--colorAccentFgAlpha);
+}
+
+/*Beautify icon badge */
+
+.button-badge {
+	animation: pop 1000ms ease-out;
+    animation-iteration-count: 3;
+	background-color: var(--colorAccentBgFadedMost);
 }
