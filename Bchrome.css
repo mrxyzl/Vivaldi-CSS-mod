@@ -63,7 +63,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 background: transparent;
 border-radius: var(--radius);
 height: 24px;
-bottom: 2px;
+
 animation: none !important;
 }
 
