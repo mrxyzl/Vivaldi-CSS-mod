@@ -20,6 +20,9 @@ Each mod contain a link to show how the mod look like:
 * [Fix round corner 1px line tab bar](https://forum.vivaldi.net/topic/75977/css-fix-for-round-corner-active-tab-1px-line?_=1654348081237)  - credit to me
 * [Stylish Animate tab highlight on hover](https://imgur.com/a/Upups22) - credit to me
 * Change address bar text selection follow Accent - credit to me
+* Cetntered and shorten URL on adressbar, show up on hovered - credit to me
+* Blur all the panel and pop up - credit to me
+* Fix most UI annoyances
 ## How to
 
 Vivaldi's user interface is based on web technologies, therefore it's relatively
