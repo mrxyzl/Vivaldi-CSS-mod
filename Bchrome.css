@@ -13,15 +13,19 @@
 .UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen;} /*.UrlFragment-Wrapper is for ellipsis, dont use this on full URL */
 
 /* warning domain pink highlighter */
-.UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper) {color: var(--colorImageFg, var(--colorAccentFg)); font-style: italic; }
+.UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper) {color: var(--colorImageFg, var(--colorAccentFg)); }
 
 .SiteInfoButton.warning {
 	color: var(--colorImageFg, var(--colorAccentFg));
 	font-weight: bold;
-	animation: wiggle 2000ms ease-in-out;
-	animation-delay: 200ms;
-	animation-iteration-count: 3;
-	opacity: 0.85;
+animation: leftfade 700ms ease-out;
+	opacity: 1;
+	background-color:var(--colorAccentBgFadedMost);
+	height: 24px;
+	border-radius: var(--radiusHalf);
+}
+.UrlBar-AddressField:has(.SiteInfoButton.warning) {
+	background: var(--colorAccentBgDarker);
 }
 @keyframes bounce {
         0%   { transform: scale(1,1)      translateY(0); }
@@ -32,27 +36,16 @@
         64%  { transform: scale(1,1)      translateY(0); }
         100% { transform: scale(1,1)      translateY(0); }
     }
-@keyframes wiggle {
-  0%, 7% {
-    transform: rotateZ(0);
+@keyframes blink {
+  0% {
+    opacity: 1;
   }
-  15% {
-    transform: rotateZ(-5deg);
-  }
+  
   20% {
-    transform: rotateZ(5deg);
+    opacity: 0.5;
   }
-  25% {
-    transform: rotateZ(-4deg);
-  }
-  30% {
-    transform: rotateZ(6deg);
-  }
-  35% {
-    transform: rotateZ(-4deg);
-  }
-  40%, 100% {
-    transform: rotateZ(0);
+ 100% {
+    opacity: 1;
   }
 }
 .UrlFragment-HostFragment-Subdomain:is([data-content="www."]){ 
@@ -204,6 +197,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 }
  .UrlBar-AddressField .pageload .pageload-ticker {
 	 color: var(--colorImageFg, var(--colorAccentFg));
+	 Display:none;
  }
 /* Disable page load ticket */
 
@@ -213,7 +207,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 
 
 /* Stylish toolbar button animation */
-.button-toolbar > button:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
+.button-toolbar > button:hover {border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
 .button-toolbar:hover:not(:active) :is(svg, img), .UrlBar .profile-popup > button:hover:not(:active) > img {transform: scale(1.3); transition: transform .15s ease-in-out !important;}
 .toolbar-mainbar .toolbar-extensions > .button-toolbar > button:hover {border-radius: 30%; background: transparent; transition: .3s ease-out !important;}
 .vivaldi:hover {border-radius: 30%; background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important;}
@@ -429,7 +423,7 @@ animation-delay: 1s;
 
 
 #app .ContentBlocker-Header {
-	background: transparent;
+	background: var(--colorAccentBgAlpha);
     border-bottom-color: transparent;
 }
 #app .ContentBlocker.button-popup {
@@ -442,12 +436,12 @@ button.privacy-btn-icon, #app .ContentBlocker-Field input[type=button], #app .Co
     background-color: transparent;
     border: none;
 }
-#browser > div.ContentBlocker.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-right.button-popup-below.button-popup-arrow-dark {
-	background: var(--colorAccentBgAlphaHeavy);
-	backdrop-filter: blur(1.2em) brightness(0.75);
-}
 .button-popup {
 	color:var(--colorImageFg, var(--colorAccentFg));
+}
+#browser > div.ContentBlocker.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark {
+		background: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.75);
 }
 /* Beautify status bar */
 :not(.tabs-bottom)#browser > footer {
@@ -608,7 +602,8 @@ select:not([multiple]):not([size]) option {
 }
 
 .toolbar-default .button-toolbar > button:enabled {
-	background-image: linear-gradient(var(--colorAccentBgAlphaHeavy), var(--colorAccentBgAlphaHeavy));
+	background-image: none;
+	    background: var(--colorAccentBgAlpha);
 }
 .NotesEditor-Editor-Background {
 	color:var(--colorImageFg, var(--colorAccentFg));
@@ -1027,7 +1022,7 @@ select option {
 }
 
 select {
-	width: 120px;
+	width: fit-content;
 	text-overflow: ellipsis;
 	border: none !important;
 	border-radius: var(--radius);
@@ -1037,4 +1032,207 @@ select {
 .dialog-download {
 	background-color: var(--colorAccentBgAlphaHeavy);
 	backdrop-filter: brightness(0.01);
+}
+
+
+.Privacy-Stats-Modal {
+	    background: var(--colorAccentBgAlphaHeavy);
+}
+
+.TabbedView-List {
+	background: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: brightness (0.7);
+}
+.TabbedView-List button.active {
+    background-color: var(--colorAccentBgAlpha);
+	
+}
+
+.sortselector {
+	background: var(--colorAccentBgAlpha)
+}
+
+#modal-bg > div {
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+.TabbedView {
+	    border: 1px solid var(--colorAccentBgDark);
+}
+.dialog-footer {
+    background-color: var(--colorAccentBgAlpha) !important;
+}
+
+
+/* move adblock to the right*/
+
+.toolbar-insideinput:first-of-type {order: 1;} 
+.SiteInfoButton-Favicon, .SiteInfoButton-SearchEngineFavicon, .SiteInfoButton-SecurityBadge {
+	margin-left: 6px;
+}
+
+/*Beautify calendar, mail and feed */
+
+#calendar_panel .PeriodPicker.PeriodPicker {
+	background: var(--colorAccentBgAlphaHeavy);
+	border: none;
+color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+.toolbar-default .button-toolbar > button:enabled.button-pressed {
+	background-image:none;
+	background-color: var(--colorAccentBg);
+}
+
+.calendar-grid .calendar-background-day {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: brightness(0.2);
+	border-radius: 0 var(--radiusHalf) var(--radiusHalf) 0;
+	border-color: var(--colorAccentBgAlpha);
+}
+
+.calendar-add-event-button.selected, .calendar-add-event-button:hover {
+    background: var(--colorAccentFgAlpha);
+    border: none;
+}
+
+.calendar-grid-hours .hour-track {
+    background-color: var(--colorAccentBgAlpha);
+    border-radius: var(--radiusHalf) 0 0 var(--radiusHalf);
+	border-color: var(--colorAccentBgAlpha);
+}
+
+.calendar-grid-hours .hour, .calendar-event .cal-edit-tabs  {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity:0.8;
+}
+
+.calendar-event.editing {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), var(--colorAccentBg);
+	outline: 1px solid var(--colorAccentBgDarker);
+}
+
+.calendar-event .cal-edit-tabs > .cal-edit-tab:hover {
+    background-color: var(--colorAccentBgAlphaHeavy);
+}
+
+.calendar-grid:focus-visible .calendar-add-event-button:not(.is-dragging).active, .calendar-grid:focus-within .calendar-add-event-button:not(.is-dragging).active, .calendar-grid-agenda:focus-visible .calendar-add-event-button:not(.is-dragging).active, .calendar-grid-agenda:focus-within .calendar-add-event-button:not(.is-dragging).active {
+background: var(--colorAccentFgAlpha);
+}
+
+.calendar-grid-hours:hover .calendar-grid-hover {
+	background: var(--colorAccentBgAlpha)
+}
+
+.calendar-event input[type=text], .calendar-event p[contenteditable=true], .calendar-event p[contenteditable=plaintext-only], .calendar-event input[type=time], .calendar-event input[type=number], .calendar-event input[type=date], .calendar-event .dateInput .dateInputHidden {
+	    border-bottom: 2px solid var(--colorAccentBgDarker);
+}
+
+p.editable[contenteditable=true]:empty:before, p.editable[contenteditable=plaintext-only]:empty:before {
+    opacity: 0.7;
+	color: var(--colorImageFg, var(--colorAccentFg));
+}
+
+#calendar_panel > header > div:nth-child(2) > div.PeriodPicker.no-page-focus > div > button {
+	background:none;
+}
+
+#calendar_panel > header > div.toolbar.toolbar-default.toolbar-align-top, .button-toolbar > button:disabled > .button-title, .calendar-event .edit-group > * {
+color: var(--colorImageFg, var(--colorAccentFg));
+opacity:0.8;
+}
+
+#calendar_panel > div > div > div.calendar-add-event-button.selected.with-event {
+	display:none;
+}
+
+.CalendarSelector .ToolbarButton-Button {
+	background-color: var(--colorAccentBgAlphaHeavy);
+    background-image: conic-gradient(at 50% 50%,var(--colorImageFg, var(--colorAccentFg)) 45deg,transparent 0, transparent 315deg, var(--colorImageFg, var(--colorAccentFg)) 0);
+    background-size: 10px 10px;
+    background-position: 95% 8px;
+	opacity: 0.7;
+}
+
+.calendar-event input[type=button].circular {
+   color: var(--colorImageFg, var(--colorAccentFg));
+opacity:0.8;
+    border: 1px solid var(--colorBorder);
+    background-color: var(--colorAccentBgAlphaHeavy);
+	border:none;
+}
+
+.calendar-grid .calendar-drop-target.dragged-over, .calendar-grid .calendar-drop-target:active, .calendar-grid .calendar-drop-target:hover {
+	background-color: var(--colorAccentBgAlpha);
+
+}
+
+.calendar-grid .calendar-drop-target {
+	background-color: var(--colorBgAlphaHeavier);
+}
+
+.calendar-grid .calendar-drop-target.weekend {
+	background-color: var(--colorAccentBgAlphaHeavy);
+}
+
+.calendar-day-picker {
+		background-color: var(--colorBgAlphaHeavier);
+}
+
+.calendar-grid-agenda {
+	    background-color: var(--colorBgAlphaHeavier);
+}
+
+}
+.calendar-event.solid, .calendar-event.all-day {
+	border: 1px solid var(--colorAccentBgAlpha);
+}
+
+#calendar_panel > div > div > div.calendar-event.selected.editing.solid, #calendar_panel > div > div > div.calendar-event.selected.solid {
+	width: 105%;
+	padding-left: 5%;
+}
+
+.calendar-grid-week .calendar-event.editing, .calendar-grid-multiweek .calendar-event.editing, .calendar-grid-month .calendar-event.editing {
+	max-width: -webkit-fill-available;
+}
+
+/*Beautify status bar mail and cal */
+
+.button-popup.button-popup-above {
+    background: var(--colorAccentBgAlphaHeavy);
+    backdrop-filter: brightness(0.7) blur(1.2em);
+	border-radius: var(--radius);
+}
+
+.StatusPopup-Header {
+background-color: var(--colorAccentBgAlphaHeavy);
+    border-bottom: 1px solid var(--colorAccentBgFadedMost);
+	border-radius: var(--radius) var(--radius) 0 0;
+	}
+
+.StatusPopup-Mail, .StatusPopup-Event, .StatusPopup-Account {
+	    background-color: var(--colorAccentBgAlphaHeavy);
+		  backdrop-filter: brightness(0.7) blur(1.2em);
+}
+.StatusPopup-Mail:hover {
+	    background-color: var(--colorAccentBgAlpha);
+}
+.StatusPopup-Footer {
+	background-color: var(--colorAccentBgAlphaHeavy);
+    border-top: 1px solid var(--colorAccentBgFadedMost);
+	border-radius: 0 0 var(--radius) var(--radius) ;
+}
+
+.button-popup-above.button-popup-arrow-dark:before {
+    border-top-color: var(--colorAccentBgAlphaHeavy);
+}
+
+.StatusPopup-MailReceiver, .StatusPopup-EventDate, .StatusPopup-AccountStatus, .StatusPopup-AccountPoll  {
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.8;
+}
+.StatusPopup-Account .button-toolbar .ToolbarButton-Button {
+    background: var(--colorAccentBgAlpha);
+	color: var(--colorImageFg, var(--colorAccentFg));
+	opacity: 0.8;
 }
