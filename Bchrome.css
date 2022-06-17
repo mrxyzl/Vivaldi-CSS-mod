@@ -456,7 +456,7 @@ button.privacy-btn-icon, #app .ContentBlocker-Field input[type=button], #app .Co
 #browser > footer > .toolbar-statusbar {
 	background-color: var(--colorBgAlphaBlur);
 }
-/* BEautify panel */
+/* Beautify panel */
 
 
 
@@ -484,6 +484,13 @@ background-color: var(--colorAccentBgAlpha);
     background-color: var(--colorAccentBgAlphaHeavy);
     border: none;
 }
+.manager-editor .fieldset textarea, .manager-editor .fieldset > input[type=text] {
+	background: var(--colorBgAlphaHeavier);
+}
+.manager-editor .fieldset textarea:is(:hover, :focus), .manager-editor .fieldset > input[type=text]:is(:hover, :focus) {
+	 background: var(--colorAccentBgAlphaHeavy);
+}
+	
 .toolbar.toolbar-default.toolbar-wrap > div > div.toolbar-group > div:nth-child(1) > button {
 	background-image: none;
     backdrop-filter: blur(1.5em);
