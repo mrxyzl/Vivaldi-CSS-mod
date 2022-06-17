@@ -907,6 +907,11 @@ animation: dropfade 300ms ease-out;
 .qr-share-dialog {
 	border-radius: var(--radiusHalf);
 	border: none;
+    backdrop-filter: blur(1.2em) brightness(0.8);
+    animation: dropfade 0.3s ease-out;
+}
+#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > div > div.dialog-header {
+	background:var(--colorAccentBgAlphaHeavy);
 }
 
 .button-popup-center {
@@ -1091,7 +1096,7 @@ select {
 	    border: 1px solid var(--colorAccentBgDark);
 }
 .dialog-footer {
-    background-color: var(--colorAccentBgAlpha) !important;
+    background-color: var(--colorAccentBgAlphaHeavy) !important;
 }
 
 
