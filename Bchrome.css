@@ -1262,3 +1262,10 @@ background-color: var(--colorAccentBgAlphaHeavy);
     animation-iteration-count: 3;
 	background-color: var(--colorAccentBgFadedMost);
 }
+
+/*Colored the spinning loading favicon */
+.favicon.spinner svg {
+ fill: var(--colorAccentBgFadedMost);
+ filter:saturate(150%);
+
+}
