@@ -379,6 +379,10 @@ transition-delay: 0.3s;
 	transition-delay: 0.5s;
 	}
 .bookmark-bar-top .bookmark-bar::before {content: ''; position: absolute; height: 20px; width: 100%; top: 100%;}
+/* bottom bookmark-bar */
+.bookmark-bar-bottom .bookmark-bar {margin-top: -28px; z-index: 1; transform: translateY(0); transition: transform .1s 0s !important;}
+.bookmark-bar-bottom .bookmark-bar::before {content: ''; position: absolute; height: 4px; width: 100%; bottom: 100%;}
+.bookmark-bar-bottom .bookmark-bar:not(:focus-within):not(:hover) {transform: translateY(100%);  transition: transform .1s 1s !important;}
 
 /* option A: trigger zone below lowest TOP bar */
 .bookmark-bar-top .bookmark-bar:not(:focus-within):not(:hover) {
