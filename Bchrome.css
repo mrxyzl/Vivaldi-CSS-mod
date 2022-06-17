@@ -358,10 +358,13 @@ transition-delay: 0.3s;
 /* ###################################################################################################################################### */
 /*Colorful extension popup*/
 
-.button-popup-left.button-popup-below {
+#browser > div.extensionIconPopupMenu.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-light {
     box-shadow: 0 0 0 1px var(--colorAccentBgAlphaHeavy), 0 2px 6px rgba(0, 0, 0, 0.25);
-	border-radius: var(--radius);
-	background:transparent;
+	border-radius: var(--radiusHalf);
+	background: var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(75%)
+	
+
 }
 #browser > div.extensionIconPopupMenu.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-light > div {
 	    background-color: var(--colorAccentBgAlphaHeavy);
@@ -737,20 +740,21 @@ input[type=button]:not(.circular), input[type=submit], input[type=color], .FormB
 }
 	
 	
-/*Beautify Transalte popup*/	
+/*Beautify Translate popup*/	
+
 	
 .button-popup-left.button-popup-below {
     border-top-right-radius: 0;
-	backdrop-filter: none;
 }
 
 #modal-bg.slide > div {
-	background: var(--colorAccentBgAlphaHeavy);
     border: none;
 	border-radius: var(--radiusHalf);
 	box-shadow: 0 0 0 1px rgb(0 0 0 / 0%), 0 2px 6px rgb(0 0 0 / 20%);
     border-radius: var(--radius);
-	backdrop-filter: blur(1.2em) brightness(0.65);
+	background-color:var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.85);
+	animation: dropfade 300ms ease-out;
 }
 .TranslatePopup {
     background-color: transparent;
@@ -809,24 +813,27 @@ button, input, select, textarea, input[type=text], input[type=search], input[typ
 	border-color: var(--colorAccentBgAlpha);
 }
 
-#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark > div {
-background: transparent;
-}
+
 
 /*Beautify bookmark popup*/
-
+#browser > div.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark {
+	background-color:var(--colorAccentBgAlphaHeavy);
+	animation: none;
+}
 .BookmarkPopup {
     background-color: var(--colorAccentBgAlphaHeavy);
-	backdrop-filter: blur(1.2em) brightness(0.75);
-	border-radius:var(--radius);
+	border-radius:var(--radiusHalf);
+    backdrop-filter: blur(1.2em) brightness(0.85);
 color: var(--colorImageFg, var(--colorAccentFg));
+animation: dropfade 300ms ease-out;
 }
 #browser > div.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > form > header {
-	background: transparent;
+	background: var(--colorAccentBgAlphaHeavy);
 }
 .DialogContent {
-   background-color: var(--colorAccentBgAlphaHeavy);
-	backdrop-filter: blur(1.2em) brightness(0.65);
+  background-color: var(--colorAccentFgAlpha);
+    backdrop-filter: blur(1.2em) brightness(0.4);
+}
 }
 
 .BookmarkLocationSelector-ToggleButtonGroup-Button:focus-visible, .BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed {
@@ -872,14 +879,13 @@ color: var(--colorImageFg, var(--colorAccentFg));
 /*Beautify QR share popup*/
 
 .qr-share-dialog {
-	background-color: var(--colorAccentBgAlphaHeavy);
-	backdrop-filter: blur(1.2em) brightness(0.75);
 	border-radius: var(--radiusHalf);
 	border: none;
 }
 
 .button-popup-center {
-	background:transparent;
+	background:var(--colorAccentBgAlphaHeavy);
+	backdrop-filter: blur(1.2em) brightness(0.75);
 	border:none;
 }
 .button-popup {
@@ -1235,4 +1241,9 @@ background-color: var(--colorAccentBgAlphaHeavy);
     background: var(--colorAccentBgAlpha);
 	color: var(--colorImageFg, var(--colorAccentFg));
 	opacity: 0.8;
+}
+
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    background-color: var(--colorAccentFgAlpha);
 }
