@@ -362,13 +362,9 @@ transition-delay: 0.3s;
     box-shadow: 0 0 0 1px var(--colorAccentBgAlphaHeavy), 0 2px 6px rgba(0, 0, 0, 0.25);
 	border-radius: var(--radiusHalf);
 	background: var(--colorAccentBgAlphaHeavy);
-	backdrop-filter: blur(1.2em) brightness(75%)
+	backdrop-filter: blur(1.2em) brightness(85%)
 	
 
-}
-#browser > div.extensionIconPopupMenu.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-light > div {
-	    background-color: var(--colorAccentBgAlphaHeavy);
-    backdrop-filter: blur(1.2em) brightness(55%) !important;
 }
 .toolbar-mainbar {
 	background:transparent;
@@ -1335,3 +1331,11 @@ background-color: var(--colorAccentBgAlphaHeavy);
 .ClockPopup-Spinner--down {
     background-image: linear-gradient(55deg, var(--colorAccentBgFadedMore) 43%, transparent 45%), linear-gradient(125deg, transparent 53%, var(--colorAccentBgFadedMore) 55%), linear-gradient(180deg, var(--colorAccentBgFadedMore) 30%, var(--colorFg) 30%);
 }
+
+
+/* Darken QR image */
+
+.qr-share-dialog .qr-image {
+	filter: invert(0.8) !important;
+}
+
