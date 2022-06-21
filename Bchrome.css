@@ -10,7 +10,7 @@
 
 /* Secure domain green highlighter  */
 .UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD {-webkit-text-stroke-width: 0px; text-shadow: none;}
-.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen; transition: 0.5s ease-out; -webkit-text-stroke: 0.2px #64ff64;} /*.UrlFragment-Wrapper is for ellipsis, dont use this on full URL */
+.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen; transition: 0.5s ease-out; -webkit-text-stroke: 0.1px #64ff64;} /*.UrlFragment-Wrapper is for ellipsis, dont use this on full URL */
 
 /* warning domain pink highlighter */
 .UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper) {color: var(--colorImageFg, var(--colorAccentFg)); }
@@ -1113,7 +1113,7 @@ color: var(--colorImageFg, var(--colorAccentFg));
 
 .toolbar-default .button-toolbar > button:enabled.button-pressed {
 	background-image:none;
-	background-color: var(--colorAccentBg);
+	background-color: var(--colorAccentBgAlphaHeavy);
 }
 
 .calendar-grid .calendar-background-day {
@@ -1126,6 +1126,7 @@ color: var(--colorImageFg, var(--colorAccentFg));
 .calendar-add-event-button.selected, .calendar-add-event-button:hover {
     background: var(--colorAccentFgAlpha);
     border: none;
+	color: var(--colorAccentBgFadedMost);
 }
 
 .calendar-grid-hours .hour-track {
@@ -1228,7 +1229,13 @@ opacity:0.8;
 .calendar-grid-week .calendar-event.editing, .calendar-grid-multiweek .calendar-event.editing, .calendar-grid-month .calendar-event.editing {
 	max-width: -webkit-fill-available;
 }
-
+/* Mail button */
+.toolbar-group > hr {
+    border-color: var(--colorAccentBgAlpha);
+}
+.panel#mail_panel .tree-item:not([data-selected]) .mail-panel-category:hover {
+    background-color: var(--colorAccentBgAlphaHeavy);
+}
 /*Beautify status bar mail and cal */
 
 .button-popup.button-popup-above {
@@ -1339,3 +1346,25 @@ background-color: var(--colorAccentBgAlphaHeavy);
 	filter: invert(0.8) !important;
 }
 
+
+/* Fix audio incon on tab */
+.tab-audio {
+    margin-top: 1.5px;
+	left:10px;
+}
+
+/*Fix shadow of tab favion not align center */
+
+.transparent-tabbar .tab-position .tab.active .tab-header .favicon:not(.svg), .theme-dark .tab-position .tab.active .tab-header .favicon:not(.svg), .acc-dark.color-behind-tabs-off .tab-position .tab.active .tab-header .favicon:not(.svg) {
+    filter: drop-shadow(2px 0 0 rgba(246, 246, 246, 0.75)) drop-shadow(-1px 0 0 rgba(246, 246, 246, 0.75)) drop-shadow(0 2px 0 rgba(246, 246, 246, 0.75)) drop-shadow(0 -1px 0 rgba(246, 246, 246, 0.75));
+}
+
+/* Smaller trash icon*/
+#tabs-container > div.toolbar.toolbar-tabbar.sync-and-trash-container > div.button-toolbar.toggle-trash > button > span {
+transform: Scale(0.9);
+}
+
+
+#panels .webpanel-stack .webpanel .webpanel-header {
+border-bottom: none;
+}
