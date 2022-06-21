@@ -927,6 +927,7 @@ background-color: var(--colorAccentBgAlpha);
 }
 .dialog-header, .dialog-footer {
 	color: var(--colorImageFg, var(--colorAccentFg));
+	border-top: 1px solid var(--colorAccentBgAlpha);
 	
 }
 
@@ -1067,6 +1068,7 @@ select {
 	backdrop-filter: brightness(0.01);
 }
 
+/* Beautify Privacy statistic */
 
 .Privacy-Stats-Modal {
 	    background: var(--colorAccentBgAlphaHeavy);
@@ -1082,19 +1084,30 @@ select {
 }
 
 .sortselector {
-	background: var(--colorAccentBgAlpha)
+	background: var(--colorAccentBgAlpha);
+	border-color: var(--colorAccentBgAlpha);
 }
 
+ .TabbedView-List button, .sortselector, .Privacy-Stats-Modal .Modal-Header .Header-Title, .dialog-content p, .Privacy-Stats-Modal .Blocked-Stats-Container p {
+	color: var(--colorImageFg, var(--colorAccentFg)) !important;
+	opacity: 0.8;
+}
+.Modal-Shield {
+    fill: var(--colorImageFg, var(--colorAccentFg)) !important;
+}
 #modal-bg > div {
-	color: var(--colorImageFg, var(--colorAccentFg));
+	color: var(--colorImageFg, var(--colorAccentFg)) !important;
 }
 .TabbedView {
 	    border: 1px solid var(--colorAccentBgDark);
 }
 .dialog-footer {
     background-color: var(--colorAccentBgAlphaHeavy) !important;
+	border-top: 1px solid var(--colorAccentBgAlpha);
 }
-
+.TabbedView-List button:hover {
+    border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important; transform: scale(1.1);
+}
 
 /* move adblock to the right*/
 
