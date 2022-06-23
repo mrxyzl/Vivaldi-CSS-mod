@@ -1033,13 +1033,17 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input + .UrlFragment-Wrapper, #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--IsEmpty > input + .UrlFragment-Wrapper {
 	animation: none !important; /* No repeating animation on input then unfocus */
 }
-
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--IsEmpty > input:hover {
+	text-align: left;
+}
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--IsEmpty > input:focus {
+	animation:none;  /* No repeating animation on focus empty text field */
+}
 /* Colorful addressbar on focus */
 
-.UrlBar-AddressField:hover,
-.UrlBar-SearchField:hover
+.UrlBar-AddressField:hover, .UrlBar-SearchField:hover {
 
-{background-color: var(--colorAccentBgFadedMore) !important;
+background-color: var(--colorAccentBgFadedMore) !important;
 backdrop-filter: brightness (120%);
 border: none !important;
 transition: 0.5s ease-out;
