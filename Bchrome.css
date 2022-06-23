@@ -174,16 +174,18 @@ color:var(--colorImageFg, var(--colorAccentFg));
 
 /* Colorful Pageload indicator */
 .UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator { /* Progress bar background before load */
-	border-radius: 6px !important;  /* Progress bar background before load roundness */
+	border-radius: var(--radiusHalf) !important;  /* Progress bar background before load roundness */
     background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), var(--colorAccentBgAlpha);
 	opacity:0.8;
 	top: 0px;
 	height:24px;
 	left: 0px;
+	right: 0px;
+	border:none;
 }
 .UrlBar-AddressField .pageload:not(.unstarted).progressing .pageload-indicator::-webkit-progress-value { /* the progressbar */
         background-color: var(--colorAccentBgAlpha);
-		border-radius:5px;
+		border-radius:var(--radiusHalf);
 		opacity: 1;
 
 }
@@ -1399,7 +1401,14 @@ background-color: var(--colorAccentBgAlphaHeavy);
 transform: Scale(0.9);
 }
 
-
+/* fix panel header */
 #panels .webpanel-stack .webpanel .webpanel-header {
 border-bottom: none;
+}
+
+/* fix vivaldi icon on title bar */
+.tabs-left .vivaldi svg, .tabs-right .vivaldi svg, .tabs-bottom .vivaldi svg, .tabs-off .vivaldi svg {
+    width: 22px;
+    height: 22px;
+	margin-top: 0px;
 }
