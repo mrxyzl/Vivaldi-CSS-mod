@@ -1002,7 +1002,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 	background:transparent;
 }
 .UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Hide domain on hover or focus */
-	animation: fadeleft 300ms ease-out;
+	animation: fadeleft 300ms;
 }
 
 .UrlFragment-Wrapper {
@@ -1030,11 +1030,9 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 	text-align: left;
 }
 	
-	
-.UrlBar-UrlObfuscationWarning svg {
-	filter: invert(98%) sepia(100%) saturate(7500%) hue-rotate(357deg) brightness(102%) contrast(105%); !important;
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input + .UrlFragment-Wrapper, #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--IsEmpty > input + .UrlFragment-Wrapper {
+	animation: none !important; /* No repeating animation on input then unfocus */
 }
-
 
 /* Colorful addressbar on focus */
 
