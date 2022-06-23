@@ -10,7 +10,7 @@
 
 /* Secure domain green highlighter  */
 .UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD {-webkit-text-stroke-width: 0px; text-shadow: none;}
-.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen; transition: 0.5s ease-out; -webkit-text-stroke: 0.1px #64ff64;} /*.UrlFragment-Wrapper is for ellipsis, dont use this on full URL */
+.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen; transition: 0.5s ease-out; -webkit-text-stroke: 0.1px #64ff64;} /*.UrlFragment-Wrapper is for ellipsis dot, dont use this on full URL */
 
 /* warning domain pink highlighter */
 .UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper) {color: var(--colorImageFg, var(--colorAccentFg)); }
@@ -48,7 +48,7 @@ animation: leftfade 700ms ease-out;
     opacity: 1;
   }
 }
-.UrlFragment-HostFragment-Subdomain:is([data-content="www."]){ 
+.UrlFragment-HostFragment-Subdomain:has([data-value="www*"]){ 
 color:var(--colorImageFg, var(--colorAccentFg)); 
 display:none;
 }
@@ -991,16 +991,36 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
     transform: translateX(0);
   }
 }
+.UrlBar-UrlField:is(:hover) + .UrlFragment-Wrapper { /* Hide domain on hover */
 
-.UrlBar-UrlField:is(:hover, :focus) + .UrlFragment-Wrapper { /* Hide domain on hover or focus */
+	opacity:0 !important;
+	transition: opacity 0.3s ease-out;
+}
+.UrlBar-UrlField:is(:focus) + .UrlFragment-Wrapper { /* Hide domain on focus */
 	transition: 0.3s ease-out;
 	opacity:0 !important;
 	background:transparent;
 }
+.UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Hide domain on hover or focus */
+	animation: fadeleft 300ms ease-out;
+}
 
 .UrlFragment-Wrapper {
-	padding: 6px 16px 6px 6px; /*Fix some buggy padding on resize*/
+	padding: 6px 6px 6px 6px; /*Fix some buggy padding on resize*/
 }
+
+
+@keyframes fadeleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div > input {
 	background: none;
