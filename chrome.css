@@ -80,18 +80,18 @@ animation: none !important;
 .toolbar-mainbar {
      background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 	 border-radius: var(--radiusHalf)!important;
-	 transition: 0.7s ease-out;
+	 transition: background-color 0.7s ease-out;
 	 background: transparent;
 	 border: none !important;
 }
 #main, #browser {
     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker)!important;
-	transition: 0.7s ease-out; 
+	transition: background-color  0.7s ease-out; 
 }
 .mainbar {
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker)!important;
 	border-radius: var(--radiusHalf)!important;
-	transition: 0.7s ease-out; 
+	transition: background-color  0.7s ease-out; 
 }
 .color-behind-tabs-on#browser.tabs-top #header {
 	transition:0.7s ease-out;
@@ -1472,7 +1472,7 @@ border-bottom: none;
 }
 .toolbar-mainbar {
      background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
-	 	transition: 0.7s ease-out;
+	 	transition: background-color 0.7s ease-out;
 }
 
 .maximized .win.normal .toolbar-mainbar {
