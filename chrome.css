@@ -257,7 +257,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
-    right: calc(1.8px - var(--radiusHalf));
+    right: calc(1.3px - var(--radiusHalf));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 #browser.color-behind-tabs-off .tab-position .tab.active.active:before { /* Fix color for private theme */
@@ -1464,7 +1464,9 @@ border-bottom: none;
 	transition: 0.3s;
 
 }
-
+.maximized#browser:has(.UrlBar-PrivateWindowIndicator) #tabs-container:not(.none).top { /*fix private icon in private tab - need to enable experimental web platform feature in vivaldi://flags for the :has() selector to work */
+	 padding-left: calc(24vw + 180px) !important; 
+}
 
 .maximized #tabs-container .resize {
     min-height: 30px;
@@ -1576,10 +1578,9 @@ border-bottom: none;
 }
 
 .maximized .UrlBar-PrivateWindowIndicator {
-    position: absolute;
-	left: 82vw;  /*Fix in private mode indicator when merge bar*/
-	font-size: 0;
-	
+  /*Fix in private mode indicator when merge bar*/
+	font-size: 0;	
+	padding: 0 6px 0 6px;
 }
 
 .tabs-right#browser.win.win10 .tabs-bottom#browser.win.win10 .tabs-left#browser.win.win10, #browser.win.win10 #header #titlebar .window-buttongroup button {
