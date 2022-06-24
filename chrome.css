@@ -1414,7 +1414,17 @@ border-bottom: none;
 	margin-top: 0px;
 }
 
+/* Beautify toolbar editor */
 
+.toolbar-editor {
+	background: var(--colorAccentBgAlphaHeavy);
+    backdrop-filter: blur(1.2em) brightness(0.5);
+}
+.toolbar-editor section.dialog-preview {
+	background: var(--colorAccentBgAlphaHeavy);
+	background-color: var(--colorBgAlphaHeavier);
+    border: solid var(--colorAccentBgAlphaHeavy);
+}
 
 
 /* Merge tab bar and addressbar */
@@ -1458,7 +1468,7 @@ border-bottom: none;
     top: 0px;
 }
 
-.maximized .toolbar-mainbar:not(.toolbar-wrap) {  /* move the addressbar and extension bar to tab bar */
+.maximized .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar) {  /* move the addressbar and extension bar to tab bar */
     position: absolute;
     top: unset; /* dont set it to 0 */
     left: 35px !important;
@@ -1490,13 +1500,13 @@ border-bottom: none;
 	transition:0.7s ease-out;
 }
 
-.maximized .toolbar-extensions {
+.maximized #main > div.mainbar > div > div.toolbar-extensions { /* Only affect extension button on mainbar */
     position: absolute !important;
     transform: translate(-100%, 0);
     background-color: var(--colorAccentBg) !important;
 	transition: background-color 0.7s ease-out;
-    left: calc(100vw - 205px) !important;  /* Adjust acordingly*/
-	height: 30px !important;
+    left: calc(100vw - 135px) !important;   /* Adjust acordingly*/
+    height: 30px !important;
 	top: 0px;
 	border-radius: var(--radiusHalf)!important;
 }
@@ -1505,11 +1515,6 @@ border-bottom: none;
 }
 .toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
 	 display: none !important;
-}
-.maximized .toolbar-extensions {
-    left: calc(100vw - 135px) !important;   /* Adjust acordingly*/
-    height: 30px !important;
-	top: 0px;
 }
 .maximized .toolbar-mainbar .toolbar-extensions > .button-toolbar > button{
 	height:30px;
