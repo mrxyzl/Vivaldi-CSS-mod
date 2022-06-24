@@ -244,15 +244,27 @@ color:var(--colorImageFg, var(--colorAccentFg));
 .tabs-subcontainer {
 	height:30px;
 }
-
+/* Tab acordion fixer */
+.tabs-top .tab-accordion:not(.active) {
+    border-bottom-left-radius: var(--radiusHalf);
+}
+.tab.tab-accordion.active:after, .tab.tab-accordion.active:before {
+	display:none !important;
+}
 /* Fix round corner 1px line tab bar */
-.tab.active:not(.marked):not(.tab-mini):before {
-    left: calc(1.1px - var(--radiusHalf));
+.tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):before {
+    left: calc(0.8px - var(--radiusHalf));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
-.tab.tab-accordion.active:after, .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
+.tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
     right: calc(1.8px - var(--radiusHalf));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
+}
+#browser.color-behind-tabs-off .tab-position .tab.active.active:before { /* Fix color for private theme */
+	background: var(--colorAccentBg);
+}
+#browser.color-behind-tabs-off .tab-position .tab.active.active:after {	/* Fix color for private theme */
+background: var(--colorAccentBg);
 }
 
 /* ###################################################################################################################################### */
@@ -285,7 +297,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 .tab-position.is-substack > .tab.active {
 	margin-bottom: 0px !important;
 }
-#browser.color-behind-tabs-on .tab-position .tab.active.active {
+#browser.color-behind-tabs-on .tab-position .tab.active.active{
     background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
     color: var(--colorFg);
 	transition: 0.3s ease-out !important;
@@ -736,6 +748,11 @@ input[type=button]:not(.circular), input[type=submit], input[type=color], .FormB
 	background-image: none;
 	color:var(--colorImageFg, var(--colorAccentFg));
 	
+}
+
+#switch .addwebpanel-wrapper > button, #switch > button {
+	Color:var(--colorFg);
+	opacity:0.9;
 }
 
 /* Beautify Omni dropdown */
