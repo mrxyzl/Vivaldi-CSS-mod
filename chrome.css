@@ -1028,6 +1028,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div > input {
 	background: none;
 	padding: 6px 6px 6px 6px;
+	bottom: 1px;
 }
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input:hover {
 	animation: none !important; /* No repeating animation on hover while editting text */
