@@ -1,16 +1,15 @@
 /* popup page zoom control */
 
-#browser > footer .page-zoom-controls input[type=range] {position: absolute; background-image: linear-gradient(90deg, #0000 0 calc(22% - 2px), var(--colorBg) 0 22%, #0000 0 calc(40% - 2px), var(--colorBg) 0 40%, #0000 0 calc(58% - 2px), var(--colorBg) 0 58%, #0000 0 calc(77% - 2px), var(--colorBg) 0 77%, #0000 0 100%); box-shadow: 0 0 0 7px var(--colorBg), 0 0 0 8px var(--colorBorder), 0 2px 12px hsl(0deg 0% 0% / 25%); visibility: hidden; opacity:0; transform: translate(-25px, -20px); transition: visibility .6s, opacity .2s ease-out .4s, transform .25s ease-in .36s !important;}
+#browser > footer .page-zoom-controls input[type=range] {position: absolute; background-image: linear-gradient(90deg, #0000 0 calc(22% - 2px), var(--colorBg) 0 22%, #0000 0 calc(40% - 2px), var(--colorBg) 0 40%, #0000 0 calc(58% - 2px), var(--colorBg) 0 58%, #0000 0 calc(77% - 2px), var(--colorBg) 0 77%, #0000 0 100%); box-shadow: 0 0 0 7px var(--colorAccentBgAlphaHeavy), 0 0 0 8px var(--colorBorder), 0 2px 12px hsl(0deg 0% 0% / 25%); visibility: hidden; opacity:0; transform: translate(-25px, -20px); transition: visibility .6s, opacity .2s ease-out .4s, transform .25s ease-in .36s !important;}
 #browser > footer .page-zoom-controls:is(:hover, :focus-within) > input[type=range] {visibility: visible; opacity: 1; transform: translate(-25px, -25px); transition: opacity: .1s ease-out .12s, transform .1s ease .1s !important;}
 #browser > footer .page-zoom-controls input[type=range]::before {content: ''; position: absolute; pointer-events: none; border: 6px solid hsl(0deg 0% 0% / 0%); z-index: inherit; filter: drop-shadow(0 1px var(--colorBorder)); bottom: -19px; left: 50%; margin-left: -6px; border-top-color: var(--colorBgLight);}
 #browser > footer .page-zoom-controls .zoom-percent {order:-1;} /* move % to left */
-#browser > footer .page-zoom-controls .reset-zoom button .button-title {min-width: 1ch; max-width: 1ch;} /* reduced Reset to R button */
 
 /* ###################################################################################################################################### */
 
 /* Secure domain green highlighter  */
 .UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD {-webkit-text-stroke-width: 0px; text-shadow: none;}
-.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen; transition: 0.5s ease-out; -webkit-text-stroke: 0.1px #64ff64;} /*.UrlFragment-Wrapper is for ellipsis dot, dont use this on full URL */
+.UrlBar-AddressField > .SiteInfoButton:is(.secure, .certified) + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper ) {color: LightGreen; transition: 0.5s ease-out; -webkit-text-stroke: 0.1px #64ff64; } /*.UrlFragment-Wrapper is for ellipsis dot, dont use this on full URL */
 
 /* warning domain pink highlighter */
 .UrlBar-AddressField > .SiteInfoButton.warning + .UrlBar-UrlFieldWrapper :is(.UrlFragment-HostFragment-Subdomain, .UrlFragment-HostFragment-Basedomain, .UrlFragment-HostFragment-TLD, .UrlFragment-Wrapper) {color: var(--colorImageFg, var(--colorAccentFg)); }
@@ -57,6 +56,7 @@ display:none;
 	text-shadow: none;
 	opacity:1;
 	filter: saturate(140%);
+	height: 24px;
 }
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input {
 color:var(--colorImageFg, var(--colorAccentFg));
@@ -821,7 +821,7 @@ border-color: var(--colorAccentBgAlpha);
 button, input, select, textarea, input[type=text], input[type=search], input[type=password], input[type=email], input[type=url], input[type=number], input[type=radio], input[type=date], input[type=time], input[type=checkbox], input[type=button], input[type=submit] {
     border-color: var(--colorAccentBgAlpha);
     background-color: var(--colorAccentBgAlphaHeavy);
-	color: color: var(--colorImageFg, var(--colorAccentFg));
+	color: var(--colorImageFg, var(--colorAccentFg));
 }
 
 #modal-bg > div > div > footer {
@@ -1027,6 +1027,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div > input {
 	background: none;
+	padding: 6px 6px 6px 6px;
 }
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--HasEditText > input:hover {
 	animation: none !important; /* No repeating animation on hover while editting text */
