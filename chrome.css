@@ -1498,10 +1498,10 @@ border-bottom: none;
 	border: none !important;
 	transform: translateY(-30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
 }
-.maximized .mainbar {  /*fix for using transform with two level tab */
-	position: absolute;
-    top: 30px;
+.maximized#browser:has(#tabs-subcontainer.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { /* Fix tab stack bar on one liner */
+transform: translateY(-60px); 
 }
+
 .maximized .toolbar-mainbar {
 	background:transparent;
 	border-radius: var(--radiusHalf);
