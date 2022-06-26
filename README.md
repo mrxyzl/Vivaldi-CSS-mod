@@ -34,6 +34,10 @@ installation after updating the browser and providing you with a plethora of mod
 I'm too lazy to seperate the mods into seperate files so you need to read the main chrome CSS and copy the section you need to your own CSS.
 oh and BTW i mainly set this UI up for use in conjunction with dark- oriented theme and both color overide option in theme setting on, so yours UI may not look as good as this with different theme. Also, i dont use horizontal menu so it wont work
 
+## Requirement
+
+Please enable the flag "experimental web platform" in vivaldi://flags setting 
+
 [1]: https://vivaldi.com/
 [2]: https://forum.vivaldi.net/topic/10549/modding-vivaldi/
 [3]: https://forum.vivaldi.net/category/52/modifications/
