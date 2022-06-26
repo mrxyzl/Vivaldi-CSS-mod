@@ -1462,7 +1462,6 @@ border-bottom: none;
 	margin-top: 0px;
 	min-height: 30px;
 	transition: 0.3s;
-
 }
 .maximized#browser:has(.UrlBar-PrivateWindowIndicator) #tabs-container:not(.none).top { /*fix private icon in private tab - need to enable experimental web platform feature in vivaldi://flags for the :has() selector to work */
 	 padding-left: calc(24vw + 178px) !important; 
@@ -1496,12 +1495,14 @@ border-bottom: none;
     height: 30px;
     background: var(--colorAccentBg) !important;
 	border: none !important;
-	transform: translateY(-30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
+	transform: translate(0, -30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
 }
 .maximized#browser:has(#tabs-subcontainer.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { /* Fix tab stack bar on one liner */
 transform: translateY(-60px); 
 }
-
+.maximized .extension-popup.top { /*fix weird glitch of extension popup when transform toolbar */
+    transform: translateX(-35px);
+}
 .maximized .toolbar-mainbar {
 	background:transparent;
 	border-radius: var(--radiusHalf);
@@ -1523,12 +1524,12 @@ transform: translateY(-60px);
 
 .maximized #main > div.mainbar > div > div.toolbar-extensions { /* Only affect extension button on mainbar */
     position: absolute !important;
-    transform: translate(-100%, 0);
+    transform: translate(-100%);
     background-color: var(--colorAccentBg) !important;
 	transition: background-color 0.7s ease-out;
     left: calc(100vw - 135px) !important;   /* Adjust acordingly*/
+	right: unset !important;
     height: 30px !important;
-	top: 0px;
 	border-radius: var(--radiusHalf)!important;
 }
 .toolbar-mainbar .toolbar-extensions {
