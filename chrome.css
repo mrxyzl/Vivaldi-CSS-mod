@@ -1021,7 +1021,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 	opacity:0 !important;
 	background:transparent;
 }
-.UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Hide domain on hover or focus */
+.UrlBar-UrlField:not(:focus, :hover) + .UrlFragment-Wrapper { /* Hide domain on hover or focus */
 	animation: fadeleft 300ms;
 }
 
@@ -1058,9 +1058,10 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 #main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--IsEmpty > input:hover {
 	text-align: left;
 }
-#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--IsEmpty > input:focus {
+#main > div.mainbar > div > div.UrlBar-AddressField.button-textonly.below > div.UrlBar-UrlFieldWrapper > div > div.UrlField.UrlField--IsEmpty > input:is(:focus, :hover) {
 	animation:none;  /* No repeating animation on focus empty text field */
 }
+
 /* Colorful addressbar on focus */
 
 .UrlBar-AddressField:hover, .UrlBar-SearchField:hover {
@@ -1345,6 +1346,7 @@ background-color: var(--colorAccentBgAlphaHeavy);
 	animation: pop 1000ms ease-out;
     animation-iteration-count: 3;
 	background-color: var(--colorAccentBgFadedMost);
+	transition: background-color 300ms ease-out;
 }
 
 /*Colored the spinning loading favicon */
@@ -1616,3 +1618,18 @@ transform: translateY(-60px);
     width: 100vw;
 	left:0px;
 }
+
+
+
+/* automate tabbar columns */
+.substrip-tabs-on #tabs-tabbar-container:is(.left, .right) > div {flex-basis: 30px !important; flex-grow: 1; z-index: 0; transition: flex-basis .1s linear .15s, min-width .1s linear .2s, background-color .1s linear !important;}
+.substrip-tabs-on #tabs-tabbar-container:is(.left, .right):not([style='width: 30px;']):not([style='width: 31px;']):not([style='width: 32px;']):not([style='width: 33px;']):not([style='width: 34px;']):not([style='width: 35px;']):not([style='width: 36px;']):not([style='width: 37px;']):not([style='width: 38px;']):not([style='width: 39px;']):not([style^='width: 4']):not([style^='width: 5']):not([style^='width: 6']):not([style^='width: 7']):not([style^='width: 8']):not([style='width: 90px;']) > #tabs-container:not(:focus-within):not(:hover) {flex-basis: 60px !important;}
+.substrip-tabs-on #tabs-tabbar-container:is(.left, .right):is(:focus-within, :hover) > #tabs-container:is(:focus-within, :hover) {flex-basis: calc(100% - 30px) !important; z-index:3;}
+.substrip-tabs-on #tabs-tabbar-container:is(.left, .right):is(:focus-within, :hover) > #tabs-subcontainer:is(:focus-within, :hover) {flex-basis: calc(100% - 60px) !important; z-index:3;}
+
+/* option B: asymmetry - minimized parent column when inactive  */
+ .substrip-tabs-on #tabs-tabbar-container:is(.left, .right):not([style^='width: 6']):not([style^='width: 7']):not([style^='width: 8']):not([style='width: 90px;']) > #tabs-subcontainer.visible {flex-grow: 99999;}
+
+/* optional: expand vertical tabbar's width on focus/mouseover */
+/#tabs-tabbar-container:is(.left, .right) {min-width: 60px; transition: width .1s linear .4s !important;}
+/#tabs-tabbar-container:is(.left, .right):is(:focus-within, :hover) {width: 399px !important; will-change: width; transition: width .1s linear .1s !important;}
