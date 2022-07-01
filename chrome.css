@@ -278,6 +278,7 @@ background: var(--colorAccentBg);
 	transform: scale(1.05);
 	transition: .2s ease-out !important;
 }
+
 .tabs-top .tab-position.is-substack .tab:hover {
 	background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), var(--colorAccentBgAlpha);
 	border-radius: var(--radiusHalf)!important;
@@ -291,6 +292,14 @@ background: var(--colorAccentBg);
 	
 #browser .tab-position .tab.active:hover {
 	transform: scale(1.05);
+	transition: .2s ease-out !important;
+}
+#browser .tab-position:has(.tab-title-edit) .tab.active:hover { /*disable scale on when editting tab title */
+	transform: none !important;
+	transition: .2s ease-out !important;
+}
+#browser .tab-position:has(.tab-title-edit) .tab:not(.active):hover .tab-header { /*disable scale on when editting tab title */
+	transform: none !important;
 	transition: .2s ease-out !important;
 }
 .tab-position.is-substack > .tab.active {
@@ -1633,3 +1642,18 @@ transform: translateY(-60px);
 /#tabs-tabbar-container:is(.left, .right) {min-width: 60px; transition: width .1s linear .4s !important;}
 /#tabs-tabbar-container:is(.left, .right):is(:focus-within, :hover) {width: 399px !important; will-change: width; transition: width .1s linear .1s !important;}
 
+
+/*Fix tab title edit on tab stack */
+.color-behind-tabs-on .tab-position .tab.active .tab-header input.tab-title-edit {
+  color: var(--colorImageFg, var(--colorAccentFg));
+  background-color: var(--colorAccentBgDark);
+  border-color: var(--colorAccentBgAlpha);
+  padding-left: 6px;
+}
+
+.color-behind-tabs-on .tab-position:not( .tab.active) .tab-header input.tab-title-edit {
+  color: var(--colorImageFg, var(--colorAccentFg));
+  background-color: var(--colorAccentBgDarker);
+  border-color: var(--colorAccentBgAlpha);
+  padding-left: 6px;
+}
