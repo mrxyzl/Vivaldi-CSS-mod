@@ -63,7 +63,6 @@ color:var(--colorImageFg, var(--colorAccentFg));
 background: transparent;
 border-radius: var(--radius);
 height: 24px;
-
 animation: none !important;
 }
 
@@ -991,7 +990,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop {
 	opacity:1 !important;
 	background:transparent;
 	text-align: center;  /* center url text */
-	transition-delay: 0.3s;
+	transition-delay: 0.5s;
 	
 }
 input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
@@ -1012,16 +1011,16 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
   }
 }
 .UrlBar-UrlField:is(:hover) + .UrlFragment-Wrapper { /* Hide domain on hover */
-
 	opacity:0 !important;
 	transition: opacity 0.3s ease-out;
+	transition-delay: 0.5s;
 }
 .UrlBar-UrlField:is(:focus) + .UrlFragment-Wrapper { /* Hide domain on focus */
 	transition: 0.3s ease-out;
 	opacity:0 !important;
 	background:transparent;
 }
-.UrlBar-UrlField:not(:focus, :hover) + .UrlFragment-Wrapper { /* Hide domain on hover or focus */
+.UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Show domain on not focus */
 	animation: fadeleft 300ms;
 }
 
@@ -1633,3 +1632,4 @@ transform: translateY(-60px);
 /* optional: expand vertical tabbar's width on focus/mouseover */
 /#tabs-tabbar-container:is(.left, .right) {min-width: 60px; transition: width .1s linear .4s !important;}
 /#tabs-tabbar-container:is(.left, .right):is(:focus-within, :hover) {width: 399px !important; will-change: width; transition: width .1s linear .1s !important;}
+
