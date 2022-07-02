@@ -265,7 +265,12 @@ color:var(--colorImageFg, var(--colorAccentFg));
 #browser.color-behind-tabs-off .tab-position .tab.active.active:after {	/* Fix color for private theme */
 background: var(--colorAccentBg);
 }
-
+.tab.active.uifocusstop.insubstrip:before {
+	left: calc(1.2px - var(--radiusHalf)) !important;
+}
+.tab.active.uifocusstop.insubstrip:after {
+	right: calc(1.8px - var(--radiusHalf)) !important;
+}
 /* ###################################################################################################################################### */
 
 /* Stylish Animate tab highlight on hover*/
@@ -1023,6 +1028,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 	opacity:0 !important;
 	transition: opacity 0.3s ease-out;
 	transition-delay: 0.5s;
+	animation: none !important;
 }
 .UrlBar-UrlField:is(:focus) + .UrlFragment-Wrapper { /* Hide domain on focus */
 	transition: 0.3s ease-out;
@@ -1032,6 +1038,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 .UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Show domain on not focus */
 	animation: fadeleft 300ms;
 }
+
 
 .UrlFragment-Wrapper {
 	padding: 6px 6px 6px 6px; /*Fix some buggy padding on resize*/
