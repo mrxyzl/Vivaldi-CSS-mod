@@ -1030,13 +1030,17 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 	transition-delay: 0.5s;
 	animation: none !important;
 }
+
+.UrlBar-UrlField:is(:hover) + .UrlFragment-Wrapper { /* Hide domain on hover */
+	animation: none;
+}
 .UrlBar-UrlField:is(:focus) + .UrlFragment-Wrapper { /* Hide domain on focus */
 	transition: 0.3s ease-out;
 	opacity:0 !important;
 	background:transparent;
 }
 .UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Show domain on not focus */
-	animation: fadeleft 300ms;
+	animation: fadeleft 300ms !important;
 }
 
 
