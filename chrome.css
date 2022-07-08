@@ -447,7 +447,9 @@ animation-delay: 1s;
 
 
 /* Beautify adblocker content */
-
+#browser > div.ContentBlocker.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark {
+	backdrop-filter: blur(1.2em) brightness(0.85) !important;
+}
 
 #app .ContentBlocker-Header {
 	background: var(--colorAccentBgAlphaHeavy);
@@ -803,8 +805,11 @@ input[type=button]:not(.circular), input[type=submit], input[type=color], .FormB
 	box-shadow: 0 0 0 1px rgb(0 0 0 / 0%), 0 2px 6px rgb(0 0 0 / 20%);
     border-radius: var(--radius);
 	background-color:var(--colorAccentBgAlphaHeavy);
-	backdrop-filter: blur(1.2em) brightness(0.85);
 	animation: dropfade 300ms ease-out;
+	backdrop-filter: blur(1.2em) brightness(0.85);
+}
+#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark {
+	backdrop-filter:none;
 }
 .TranslatePopup {
     background-color: transparent;
@@ -877,13 +882,13 @@ button, input, select, textarea, input[type=text], input[type=search], input[typ
 color: var(--colorImageFg, var(--colorAccentFg));
 animation: dropfade 300ms ease-out;
 }
+
 #browser > div.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > form > header {
 	background: var(--colorAccentBgAlphaHeavy);
 }
 .DialogContent {
   background-color: var(--colorAccentFgAlpha);
     backdrop-filter: blur(1.2em) brightness(0.4);
-}
 }
 
 .BookmarkLocationSelector-ToggleButtonGroup-Button:focus-visible, .BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed {
@@ -1031,17 +1036,15 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 	animation: none !important;
 }
 
-.UrlBar-UrlField:is(:hover) + .UrlFragment-Wrapper { /* Hide domain on hover */
-	animation: none;
-}
 .UrlBar-UrlField:is(:focus) + .UrlFragment-Wrapper { /* Hide domain on focus */
 	transition: 0.3s ease-out;
 	opacity:0 !important;
 	background:transparent;
 }
 .UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Show domain on not focus */
-	animation: fadeleft 300ms !important;
+	animation: fadeleft 300ms ;
 }
+
 
 
 .UrlFragment-Wrapper {
