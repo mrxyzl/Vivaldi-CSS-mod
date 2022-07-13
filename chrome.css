@@ -256,7 +256,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
-    right: calc(1.4px - var(--radiusHalf));
+    right: calc(1.9px - var(--radiusHalf));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 #browser.color-behind-tabs-off .tab-position .tab.active.active:before { /* Fix color for private theme */
@@ -447,9 +447,7 @@ animation-delay: 1s;
 
 
 /* Beautify adblocker content */
-#browser > div.ContentBlocker.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark {
-	backdrop-filter: blur(1.2em) brightness(0.85) !important;
-}
+
 
 #app .ContentBlocker-Header {
 	background: var(--colorAccentBgAlphaHeavy);
@@ -808,7 +806,7 @@ input[type=button]:not(.circular), input[type=submit], input[type=color], .FormB
 	animation: dropfade 300ms ease-out;
 	backdrop-filter: blur(1.2em) brightness(0.85);
 }
-#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark {
+.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark:has(#modal-bg.slide) {
 	backdrop-filter:none;
 }
 .TranslatePopup {
@@ -941,9 +939,12 @@ animation: dropfade 300ms ease-out;
 .qr-share-dialog {
 	border-radius: var(--radiusHalf);
 	border: none;
-    backdrop-filter: blur(1.2em) brightness(0.8);
     animation: dropfade 0.3s ease-out;
 }
+#browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark {
+	width:300px;
+}
+
 #browser > div.ToolbarButtonPopup-DefaultStyles.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > div > div.dialog-header {
 	background:var(--colorAccentBgAlphaHeavy);
 }
@@ -1029,7 +1030,7 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
     transform: translateX(0);
   }
 }
-.UrlBar-UrlField:is(:hover) + .UrlFragment-Wrapper { /* Hide domain on hover */
+.UrlBar-UrlField:is(:hover):not(:focus) + .UrlFragment-Wrapper { /* Hide domain on hover */
 	opacity:0 !important;
 	transition: opacity 0.3s ease-out;
 	transition-delay: 0.5s;
@@ -1037,13 +1038,13 @@ input.UrlBar-UrlField.url.vivaldi-addressfield.uifocusstop:is(:focus)  {
 }
 
 .UrlBar-UrlField:is(:focus) + .UrlFragment-Wrapper { /* Hide domain on focus */
-	transition: 0.3s ease-out;
 	opacity:0 !important;
 	background:transparent;
 }
-.UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Show domain on not focus */
+/*.UrlBar-UrlField:not(:focus) + .UrlFragment-Wrapper { /* Show domain on not focus 
 	animation: fadeleft 300ms ;
 }
+*/
 
 
 
@@ -1670,4 +1671,16 @@ transform: translateY(-60px);
   background-color: var(--colorAccentBgDarker);
   border-color: var(--colorAccentBgAlpha);
   padding-left: 6px;
+}
+
+/*Fix audio icon on small tab */
+
+#browser:not(.alt-tabs) #tabs-container .tab:not(.pinned).audio-on .favicon {
+	transition-delay: 0ms;
+transform: scale(0);
+}
+
+#tabs-container .tab.tab-small.audio-on .tab-audio, #tabs-container .tab.pinned.audio-on .tab-audio, #tabs-container .tab.tab-small.audio-muted .tab-audio, #tabs-container .tab.pinned.audio-muted .tab-audio, #tabs-container .tab.tab-small.tab-captured .tab-audio, #tabs-container .tab.pinned.tab-captured .tab-audio {
+    left: 6px;
+	margin-top:0px;
 }
