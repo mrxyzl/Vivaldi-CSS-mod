@@ -22,6 +22,11 @@ animation: leftfade 700ms ease-out;
 	background-color:var(--colorAccentBgFadedMost);
 	height: 24px;
 	border-radius: var(--radiusHalf);
+	min-width:fit-content;
+	margin-left:-1px
+}
+.UrlBar-UrlFieldWrapper {
+	min-width:50px;
 }
 .UrlBar-AddressField:has(.SiteInfoButton.warning) {
 	background: var(--colorAccentBgDarker);
@@ -1181,7 +1186,8 @@ select {
 
 .toolbar-insideinput:first-of-type {order: 1;} 
 .SiteInfoButton-Favicon, .SiteInfoButton-SearchEngineFavicon, .SiteInfoButton-SecurityBadge {
-	margin-left: 6px;
+	margin-left: 3px;
+    margin-right: -3px;
 }
 
 /*Beautify calendar, mail and feed */
