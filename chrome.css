@@ -139,6 +139,7 @@ animation: none !important;
 }
  .toolbar-tabbar.sync-and-trash-container {
 	margin-right: -55px !important;
+	transition: 0.3s;
 }
 
 
@@ -1659,7 +1660,10 @@ transform: translateY(-60px);
 	left:0px;
 }
 
-
+.maximized#browser:has(.toolbar-mailbar.toolbar-large) .toolbar-tabbar.sync-and-trash-container {
+	margin-right:-85px !important;
+}
+	
 
 /* automate tabbar columns */
 .substrip-tabs-on #tabs-tabbar-container:is(.left, .right) > div {flex-basis: 30px !important; flex-grow: 1; z-index: 0; transition: flex-basis .1s linear .15s, min-width .1s linear .2s, background-color .1s linear !important;}
