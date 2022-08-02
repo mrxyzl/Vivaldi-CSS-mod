@@ -138,10 +138,13 @@ animation: none !important;
 	background-color: var(--colorAccentBg);
 }
  .toolbar-tabbar.sync-and-trash-container {
-	margin-right: -55px !important;
+	margin-right: -55px;
 	transition: 0.3s;
 }
-
+.tabs-left .toolbar-tabbar.sync-and-trash-container, .tabs-right .toolbar-tabbar.sync-and-trash-container {
+	Margin: 0px !important;
+}
+	
 
 /* ###################################################################################################################################### */
 
@@ -1603,12 +1606,15 @@ transform: translateY(-60px);
 
 .maximized .toolbar-tabbar.sync-and-trash-container {
 	top: 0px !important;
-	margin-right: -15px !important;
+	margin-right: -15px;
 }
+.maximized#browser:has(.tabs-left .toolbar-tabbar.sync-and-trash-container, .tabs-right .toolbar-tabbar.sync-and-trash-container) .toolbar-tabbar.sync-and-trash-container {
+	margin-right: unset;
+}
+
 .maximized .window-buttongroup { 
-	height: unset !important;
+	height: 30px !important;
 	width: 100px !important;
-	top: 7px !important;
 	padding-left: 15px;
 }
 .maximized #browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
@@ -1636,12 +1642,19 @@ transform: translateY(-60px);
 }
 
 
-.win #titlebar #pagetitle > span, .linux #titlebar #pagetitle > span {
-    text-align: left;   /* fix page title alignment on different tab mode */
-    margin-left: 38%;
+.maximized.win #titlebar #pagetitle > span, .linux #titlebar #pagetitle > span {
+    text-align: center;   /* fix page title alignment on different tab mode */
+    margin-left: 0%;
     width: 42vw;
 }
-
+.maximized#browser.win.win10 #titlebar #pagetitle {
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
+    width: 750px;
+    position: absolute;
+    left: 35vw;
+}
 .win10.normal #tabs-tabbar-container.top {  /* Fix super huge header on window mode */
     padding-top: 6px;
 }
@@ -1779,19 +1792,19 @@ button.window-maximize {
 }
 button.window-maximize:hover {
 	background-color: #489630 !important;
-}
+		border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
 button.window-minimize {
 	background-color: #F6BC3D !important;
 }
 button.window-minimize:hover {
 	background-color: #a38035 !important;
-}
+		border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
 button.window-close {
 	background-color: #EB5A55 !important;
 }
 button.window-close:hover {
 	background-color: #993936 !important;
-}
+	border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
 button.window-maximize svg,
 button.window-minimize svg,
 button.window-close svg {
@@ -1808,13 +1821,16 @@ button.window-close svg path {
 	d: path('');
 }
 
-#browser.win.win10 #header #titlebar .window-buttongroup {
+.window-buttongroup {
     overflow: hidden;
-    line-height: initial;
-    top: 14px;
+    top: 6px;
     width: 90px;
+    display: flex;
+    height: 30px;
+    align-content: center;
+    align-items: center;
 }
-
+	
 /* Enlare URL text */
 .UrlField, .OmniDropdown, .SearchField {
   font-size: 14px;
