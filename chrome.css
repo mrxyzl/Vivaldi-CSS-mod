@@ -138,7 +138,7 @@ animation: none !important;
 	background-color: var(--colorAccentBg);
 }
  .toolbar-tabbar.sync-and-trash-container {
-		top: 0px !important;
+	margin-right: -55px !important;
 }
 
 
@@ -856,7 +856,7 @@ border-color: var(--colorAccentBgAlpha);
 	opacity: 0.75;
 }
 
-button, input, select, textarea, input[type=text], input[type=search], input[type=password], input[type=email], input[type=url], input[type=number], input[type=radio], input[type=date], input[type=time], input[type=checkbox], input[type=button], input[type=submit] {
+input, select, textarea, input[type=text], input[type=search], input[type=password], input[type=email], input[type=url], input[type=number], input[type=radio], input[type=date], input[type=time], input[type=checkbox], input[type=button], input[type=submit] {
     border-color: var(--colorAccentBgAlpha);
     background-color: var(--colorAccentBgAlphaHeavy);
 	color: var(--colorImageFg, var(--colorAccentFg));
@@ -885,13 +885,15 @@ button, input, select, textarea, input[type=text], input[type=search], input[typ
 color: var(--colorImageFg, var(--colorAccentFg));
 animation: dropfade 300ms ease-out;
 }
-
+#browser > div.button-popup.button-popup-center.button-popup-below.button-popup-arrow-dark > form > header {
+ background: var(--colorAccentBgAlphaHeavy);
+ }
 #browser > div.button-popup.button-popup-left.button-popup-below.button-popup-arrow-dark > form > header {
 	background: var(--colorAccentBgAlphaHeavy);
 }
 .DialogContent {
-  background-color: var(--colorAccentFgAlpha);
-    backdrop-filter: blur(1.2em) brightness(0.4);
+  background-color: var(--colorAccentBgAlphaHeavy);
+    backdrop-filter: blur(1.2em) brightness(0.2);
 }
 
 .BookmarkLocationSelector-ToggleButtonGroup-Button:focus-visible, .BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed {
@@ -911,8 +913,14 @@ animation: dropfade 300ms ease-out;
 	border-color: var(--colorAccentBgAlpha);
 	backdrop-filter: brightness(0.1);
 }
-.DialogHeader-HeaderText {
+.DialogHeader-HeaderText, .DialogHeader.BookmarkPopup-Header {
 	color: var(--colorImageFg, var(--colorAccentFg));
+}
+.BookmarkLocationSelector-SearchInput-Button {
+	border-color: var(--colorImageFg, var(--colorAccentFg));
+}
+svg.folder-icon .fill-override {
+	fill:var(--colorImageFg, var(--colorAccentFg));
 }
 
 .BookmarkInputField-Title {
@@ -1340,6 +1348,7 @@ background-color: var(--colorAccentBgAlphaHeavy);
 .StatusPopup-Mail, .StatusPopup-Event, .StatusPopup-Account {
 	    background-color: var(--colorAccentBgAlphaHeavy);
 		  backdrop-filter: brightness(0.7) blur(1.2em);
+		  border-color: var(--colorBgAlphaHeavier);
 }
 .StatusPopup-Mail:hover {
 	    background-color: var(--colorAccentBgAlpha);
@@ -1556,9 +1565,9 @@ transform: translateY(-60px);
 .maximized #main > div.mainbar > div > div.toolbar-extensions { /* Only affect extension button on mainbar */
     position: absolute !important;
     transform: translate(-100%);
-    background-color: var(--colorAccentBg) !important;
+    background-color: var(--colorAccentBgAlphaHeavy) !important;
 	transition: background-color 0.7s ease-out;
-    left: calc(100vw - 135px) !important;   /* Adjust acordingly*/
+    left: calc(100vw - 120px) !important;   /* Adjust acordingly*/
 	right: unset !important;
     height: 30px !important;
 	border-radius: var(--radiusHalf)!important;
@@ -1592,12 +1601,14 @@ transform: translateY(-60px);
 }
 
 .maximized .toolbar-tabbar.sync-and-trash-container {
-		top: 0px !important;
+	top: 0px !important;
+	margin-right: -15px !important;
 }
 .maximized .window-buttongroup { 
 	height: unset !important;
 	width: 100px !important;
-	top: 0px !important;
+	top: 7px !important;
+	padding-left: 15px;
 }
 .maximized #browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
     height: unset;
@@ -1690,3 +1701,122 @@ transform: scale(0);
     left: 6px;
 	margin-top:0px;
 }
+
+/* Beautify find in page */
+
+.find-in-page-wrapper {
+    left: 30vw;
+    color: var(--colorFg);
+    background-color: var(--colorAccentBgAlphaHeavy);
+    border: 0px solid var(--colorAccentBgAlpha);
+    /* height: 30px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 35vw;
+    position: absolute;
+    z-index: 10;
+    /* justify-self: center; */
+    border-radius: var(--radiusHalf);
+    backdrop-filter: blur(1.2em);
+}
+
+.fip-nomatches.find-in-page .fip-input-container > input {
+    background-color: var(--colorAccentBgFadedMost);
+}
+.find-in-page .fip-input-label, .find-in-page .fip-checkbox-label  {
+	color:var(--colorImageFg, var(--colorAccentFg));
+}
+
+
+/* MacOS style for wwindow button group */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+#browser.win {
+	font-family: 'Roboto', sans-serif !important;
+}
+body {
+	font-family: 'Roboto', sans-serif !important;
+}
+
+
+
+/** /
+Mac Colors: 
+Close Color: #EB5A55
+Minimize Color: #F6BC3D
+Maximize Color: #64CC44
+/**/
+button.close {
+	background-color: transparent !important;
+	border-radius: 50%;
+}
+button.close:hover {
+	background-color: transparent !important;
+}
+button.close:hover svg path {
+	fill: #993936 !important;
+}
+button.close svg path {
+	d: path('M2,8a6,6 0 1,0 12,0a6,6 0 1,0 -12,0');
+	fill: #f85953;
+}
+
+button.window-maximize,
+button.window-minimize,
+button.window-close {
+	border-radius: 50% !important;
+	height: 16px !important;
+	width: 16px !important;
+	margin-left: 10px !important;
+}
+button.window-maximize {
+	background-color: #64CC44 !important;
+}
+button.window-maximize:hover {
+	background-color: #489630 !important;
+}
+button.window-minimize {
+	background-color: #F6BC3D !important;
+}
+button.window-minimize:hover {
+	background-color: #a38035 !important;
+}
+button.window-close {
+	background-color: #EB5A55 !important;
+}
+button.window-close:hover {
+	background-color: #993936 !important;
+}
+button.window-maximize svg,
+button.window-minimize svg,
+button.window-close svg {
+	height: 20px !important;
+	width: 20px !important;
+}
+button.window-minimize svg path {
+	d: path('');
+}
+button.window-maximize svg path {
+	d: path('');
+}
+button.window-close svg path {
+	d: path('');
+}
+
+#browser.win.win10 #header #titlebar .window-buttongroup {
+    overflow: hidden;
+    line-height: initial;
+    top: 14px;
+    width: 90px;
+}
+
+/* Enlare URL text */
+.UrlField, .OmniDropdown, .SearchField {
+  font-size: 14px;
+}
+.UrlFragment-Wrapper {
+	line-height: 13px;
+}
+
+
