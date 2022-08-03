@@ -228,6 +228,8 @@ color:var(--colorImageFg, var(--colorAccentFg));
 .button-toolbar > button {
 	border: none;
 }
+.menubar button:hover {border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transition: .3s ease-out !important; transform: scale(1.05);}
+	
 .BookmarkButton {
 	border: none;
 }
@@ -1507,6 +1509,10 @@ border-bottom: none;
 	min-height: 30px;
 	transition: 0.3s;
 }
+.maximized#browser:not(:has(.vivaldi)) #tabs-container:not(.none).top {
+    padding-left: calc(24vw + 115px) !important;
+    padding-right: 90px !important;
+}
 .maximized#browser:has(.UrlBar-PrivateWindowIndicator) #tabs-container:not(.none).top { /*fix private icon in private tab - need to enable experimental web platform feature in vivaldi://flags for the :has() selector to work */
 	 padding-left: calc(24vw + 178px) !important; 
 }
@@ -1541,6 +1547,10 @@ border-bottom: none;
 	border: none !important;
 	transform: translate(0, -30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
 }
+.maximized#browser:not(:has(.vivaldi)) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {  
+    Left: 0px !important;
+}
+
 .maximized#browser:has(#tabs-subcontainer.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { /* Fix tab stack bar on one liner */
 transform: translateY(-60px); 
 }
@@ -1575,6 +1585,9 @@ transform: translateY(-60px);
 	right: unset !important;
     height: 30px !important;
 	border-radius: var(--radiusHalf)!important;
+}
+.maximized#browser:not(:has(.vivaldi)) #main > div.mainbar > div > div.toolbar-extensions {
+	Left:100vw !important;
 }
 .toolbar-mainbar .toolbar-extensions {
 	background-color: transparent;
@@ -1614,8 +1627,7 @@ transform: translateY(-60px);
 
 .maximized .window-buttongroup { 
 	height: 30px !important;
-	width: 100px !important;
-	padding-left: 15px;
+	Top: 0px !important;
 }
 .maximized #browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) {
     height: unset;
@@ -1785,25 +1797,25 @@ button.window-close {
 	border-radius: 50% !important;
 	height: 16px !important;
 	width: 16px !important;
-	margin-left: 10px !important;
+	margin: 5px !important;
 }
 button.window-maximize {
 	background-color: #64CC44 !important;
 }
 button.window-maximize:hover {
-	background-color: #489630 !important;
-		border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
+	filter:brightness(1.5);
+	border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
 button.window-minimize {
 	background-color: #F6BC3D !important;
 }
 button.window-minimize:hover {
-	background-color: #a38035 !important;
-		border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
+	filter:brightness(1.5);
+	border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
 button.window-close {
 	background-color: #EB5A55 !important;
 }
 button.window-close:hover {
-	background-color: #993936 !important;
+	filter:brightness(1.5);
 	border-radius: var(--radius); transition: .3s ease-out !important; transform: scale(1.2);}
 button.window-maximize svg,
 button.window-minimize svg,
@@ -1823,14 +1835,17 @@ button.window-close svg path {
 
 .window-buttongroup {
     overflow: hidden;
-    top: 6px;
-    width: 90px;
     display: flex;
     height: 30px;
     align-content: center;
     align-items: center;
 }
-	
+#browser.win.win10:is(.tabs-top) .window-buttongroup {
+	top: 6px;
+}
+#browser:not(:has(.vivaldi)) .window-buttongroup {
+	top: 0px !important;
+}
 /* Enlare URL text */
 .UrlField, .OmniDropdown, .SearchField {
   font-size: 14px;
@@ -1840,3 +1855,14 @@ button.window-close svg path {
 }
 
 
+/*Fix top menu in horizon */
+
+.maximized.win10 .topmenu {
+    margin-top: 4px;
+}
+.win10 .topmenu {
+    margin-top: 4px;
+}
+
+.menubar button.highlighted {
+  border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transform: scale(1.05);}
