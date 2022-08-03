@@ -1784,7 +1784,8 @@ button.close:hover {
 	background-color: transparent !important;
 }
 button.close:hover svg path {
-	fill: #993936 !important;
+	fill: #ff9591 !important;
+	transition: 0.3s;
 }
 button.close svg path {
 	d: path('M2,8a6,6 0 1,0 12,0a6,6 0 1,0 -12,0');
@@ -1862,7 +1863,29 @@ button.window-close svg path {
 }
 .win10 .topmenu {
     margin-top: 4px;
+	margin-right:75px;
 }
 
 .menubar button.highlighted {
-  border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transform: scale(1.05);}
+  border-radius: var(--radius); background: var(--colorAccentBgAlpha) !important; transform: scale(1.05);
+ }
+.topmenu .horizontal-menu-pagetitle {
+    margin-top: 0px;
+	line-height:24px;
+	padding-right: 12px;
+}
+
+
+/* Fix for native window */
+.maximized#browser:is(.native.win ) #main > div.mainbar > div > div.toolbar-extensions {
+	left:97.4vw !important;
+}
+
+.maximized#browser:is(.native.win ) #tabs-container:not(.none).top {
+    padding-left: calc(24vw + 115px) !important;
+    padding-right: 90px !important;
+}
+
+#browser:is(.native.win ) #header {
+	height:30px;
+}
