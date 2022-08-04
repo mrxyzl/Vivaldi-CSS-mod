@@ -1898,3 +1898,25 @@ button.window-close svg path {
 .maximized#browser.native.win:has(.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {
 	width: unset;
 }
+
+#browser.native.win:has(.bottom, .left, .right) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {  /* move the addressbar and extension bar to tab bar */
+    position: absolute;
+    top: unset; /* dont set it to 0 */
+    left: 35px !important;
+    height: 30px;
+    background: var(--colorAccentBg) !important;
+	border: none !important;
+	transform: translate(0, -30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
+	width: 95.7%;
+
+}
+#browser.native.win:has(.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {  /* move the addressbar and extension bar to tab bar */
+    position: unset;
+    top: unset; /* dont set it to 0 */
+    left: unset !important;
+    height: unset;
+    background: unset !important;
+	border: unset !important;
+	transform: unset; /* use instead of top =0 to fix showing or not showing empty space above tab */
+	width: unset;
+}
