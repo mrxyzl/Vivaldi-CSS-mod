@@ -1860,7 +1860,7 @@ button.window-close svg path {
 /*Fix top menu in horizon */
 
 .maximized.win10 .topmenu {
-    margin-top: 4px;
+    margin-top: 4px !important;
 }
 .win10 .topmenu {
     margin-top: 4px;
