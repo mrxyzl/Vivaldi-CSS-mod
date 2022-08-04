@@ -1529,7 +1529,7 @@ border-bottom: none;
     top: 0px;
 }
 
-.maximized .UrlBar-AddressField {
+.maximized#browser:has(.top) .UrlBar-AddressField {
     width: 24vw !important;
     top: 0px !important;
 }
@@ -1886,6 +1886,15 @@ button.window-close svg path {
     padding-right: 90px !important;
 }
 
-#browser:is(.native.win ) #header {
-	height:30px;
+#browser:is(.native.win) #header {
+	min-height:30px;
+}
+
+
+
+.maximized#browser.native.win:has(.bottom, .left, .right) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {
+	width: 92%;
+}
+.maximized#browser.native.win:has(.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {
+	width: unset;
 }
