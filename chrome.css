@@ -109,9 +109,7 @@ animation: none !important;
 .toolbar-mainbar .toolbar-extensions {
 	background-color: transparent;
 }
-.toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after {
-	 display: none !important;
-}
+
 
  #header, #main {
     position: unset;
@@ -1388,10 +1386,10 @@ background-color: var(--colorAccentBgAlphaHeavy);
 /*Beautify icon badge */
 
 .button-badge {
-	animation: pop 1000ms ease-out;
     animation-iteration-count: 3;
 	background-color: var(--colorAccentBgFadedMost);
 	transition: background-color 300ms ease-out;
+	color: var(--colorImageFg, var(--colorAccentFg));
 }
 
 /*Colored the spinning loading favicon */
@@ -1543,7 +1541,7 @@ border-bottom: none;
     position: absolute;
     top: unset; /* dont set it to 0 */
     left: 35px !important;
-    height: 30px;
+    height: 29.99px;
     background: var(--colorAccentBg) !important;
 	border: none !important;
 	transform: translate(0, -30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
@@ -1582,7 +1580,7 @@ transform: translateY(-60px);
     transform: translate(-100%);
     background-color: var(--colorAccentBgAlphaHeavy) !important;
 	transition: background-color 0.7s ease-out;
-    left: calc(100vw - 120px) !important;   /* Adjust acordingly*/
+    left: calc(100vw - 125px) !important;   /* Adjust acordingly*/
 	right: unset !important;
     height: 30px !important;
 	border-radius: var(--radiusHalf)!important;
@@ -1620,7 +1618,7 @@ transform: translateY(-60px);
 
 .maximized .toolbar-tabbar.sync-and-trash-container {
 	top: 0px !important;
-	margin-right: -15px;
+	margin-right: -5px;
 }
 .maximized#browser:has(.tabs-left .toolbar-tabbar.sync-and-trash-container, .tabs-right .toolbar-tabbar.sync-and-trash-container) .toolbar-tabbar.sync-and-trash-container {
 	margin-right: unset;
@@ -1844,6 +1842,7 @@ button.window-close svg path {
 }
 #browser.win.win10:is(.tabs-top) .window-buttongroup {
 	top: 6px;
+	right:4px;
 }
 #browser:not(:has(.vivaldi)) .window-buttongroup {
 	top: 0px !important;
@@ -1879,13 +1878,12 @@ button.window-close svg path {
     margin-bottom: 0px;
 }
 .maximized#browser:has(.topmenu) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) {  /* move the addressbar and extension bar to tab bar */
-   position: unset;
+     position: unset;
     top: unset; /* dont set it to 0 */
     left: unset !important;
     height: unset;
     background: unset !important;
 	border: unset !important;
-	transform: unset; /* use instead of top =0 to fix showing or not showing empty space above tab */
 	width: 94.7%;
 
 }
@@ -1898,7 +1896,9 @@ button.window-close svg path {
 	border: none !important;
 	transform: translate(0, -30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
 	width: unset;
+}
 /* Fix for native window */
+
 .maximized#browser:is(.native.win ) #main > div.mainbar > div > div.toolbar-extensions {
 	left:97.4vw !important;
 }
@@ -1942,4 +1942,14 @@ button.window-close svg path {
 	transform: unset; /* use instead of top =0 to fix showing or not showing empty space above tab */
 	width: unset;
 }
+/* Remove update button */
+#main > div.mainbar > div > div.button-toolbar.cl6ornq6o00d53a67x57c912r > button {
+	display:none;
+}
 
+/* Remove line under address bar and extensions bar */
+.address-top .mainbar > .toolbar-mainbar .toolbar-extensions:before,
+.address-top .mainbar > .toolbar-mainbar:before {
+
+  display:none;
+}
