@@ -265,7 +265,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 .tab.active:not(.marked):not(.tab-mini):not(.tab-in-accordion):after {
-    right: calc(1.9px - var(--radiusHalf));
+    right: calc(1.7px - var(--radiusHalf));
 	 background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
 }
 #browser.color-behind-tabs-off .tab-position .tab.active.active:before { /* Fix color for private theme */
@@ -897,8 +897,8 @@ animation: dropfade 300ms ease-out;
 	background: var(--colorAccentBgAlphaHeavy);
 }
 .DialogContent {
-  background-color: var(--colorAccentBgAlphaHeavy);
-    backdrop-filter: blur(1.2em) brightness(0.2);
+  background-color: transparent; 
+  backdrop-filter: blur(1.2em) brightness(0.2);
 }
 
 .BookmarkLocationSelector-ToggleButtonGroup-Button:focus-visible, .BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed {
@@ -936,7 +936,6 @@ svg.folder-icon .fill-override {
 .BookmarkLocationSelector-ToggleButtonGroup-Button {
 	color: var(--colorImageFg, var(--colorAccentFg));
 	opacity: 0.65;
-	background: var(--colorAccentBgAlpha);
 }
 .BookmarkLocationSelector-ToggleButtonGroup-Button:focus-visible, .BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed {
 	box-shadow: inset 0 -2px 0 0 var(--colorHighlightBg) !important;
@@ -1501,7 +1500,7 @@ border-bottom: none;
 }
 
 .maximized #tabs-container:not(.none).top {
-    padding-left: calc(24vw + 145px) !important;   /* Adjust acording to left button, 35px each */
+    padding-left: calc(24vw + 150px) !important;   /* Adjust acording to left button, 35px each */
 	padding-right: 170px !important;  /* Adjust acording to number of extension, 35px each*/
 	padding-top: 0px !important;
 	margin-top: 0px;
@@ -1953,3 +1952,46 @@ button.window-close svg path {
 
   display:none;
 }
+
+/* Centered speedial title */
+.speeddial .dial > .thumbnail-title { justify-content: center; }
+
+
+/* ADD BOOKMARK DIALOG */
+.BookmarkButton svg > g > path.bookmark-animated-fill {fill: var(--colorHighlightBg) !important;} /* Added bookmark button hightlight */
+
+.address-top .button-popup:has(.BookmarkPopup) {max-height: 99vh; margin-top: 7px; z-index: 99;} /* enable full height popup dialog */
+
+.address-top .BookmarkPopup > header > h1 {font-size:0;} /* hide header */
+.address-top .BookmarkPopup > header > p {text-indent: -22px; clip-path: inset(0 0 0 -7px); font-size: 16px;} /* adjust selected folder title, might need adjustment for non-English language GUI */
+
+.BookmarkPopup-TextInputWrapper {gap: 3px; /* order:1; */} /* compact bookmark form, u can relocate FORM to bottom by enabled "order:1;" */
+
+.BookmarkLocationSelector-ToggleButtonGroup-Button {font-size: 0; padding: 9px 6px 10px;} /* no text compact folder/SD selection tabs */
+.BookmarkLocationSelector-ToggleButtonGroup-Button svg {margin-left: 6px;} /* tab icon adjustment */
+.BookmarkLocationSelector-ToggleButtonGroup-Button:is(:hover, :focus-within) svg.folder-icon .fill-override {fill: var(--colorAccentBgAlpha); transform-origin: center; transform: scale(1.2);} /* improved tab icon hover/focus effect */
+.BookmarkLocationSelector-ToggleButtonGroup-Button:is(:hover, :focus-within) {background:var(--colorAccentBgAlphaHeavy);}
+.BookmarkLocationSelector-ToggleButtonGroup-Button:not(.BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed) {box-shadow: unset !important;} /* fix: confusing focus effect */
+
+.BookmarkLocationSelector-SearchInput {transform: translateY(-46px); padding: 0; margin: 0 9px 0 85px;} /* compact searchbox */
+.BookmarkLocationSelector-FolderList {margin-top: -48px;} /* tree list adjustment */
+.DialogFooter {background: var(--colorAccentBgAlphaHeavy); border-top: none;}
+@media only screen and (min-height: 450px) {
+.address-top .BookmarkLocationSelector.BookmarkPopup-LocationSelector {height: calc(100vh - 330px);} /* extend folder selection list */
+}
+
+.theme-dark .BookmarkPopup > footer > input.danger {color: var(--colorImageFg, var(--colorAccentFg));background:#db45379c; border-color: var(--colorErrorBgAlpha);} /* fix: dark theme REMOVE button color */
+.theme-dark .BookmarkPopup > footer > input.danger:hover {background-color: #db4537 !important;}
+.address-top .BookmarkPopup > footer > input[type="submit"] {width:100%;background: var(--colorAccentBgAlpha); border:none;} /* big DONE button */
+.address-top .BookmarkPopup > footer > input[type="submit"]:hover {transform: scale(1.05); background-color: #5252ffb0 !important;} 
+
+
+/* compact mode for small height window */
+@media only screen and (max-height: 450px) { 
+.address-top .DialogContent.BookmarkPopup-Content {overflow: auto; max-height: calc(100vh - 110px);} /* transform popup to scrollable */
+.address-top .BookmarkLocationSelector.BookmarkPopup-LocationSelector {height: calc(100vh - 114px);} /* optional: limit scrollable content to 2 pages */
+.address-top .BookmarkPopup {grid-template-rows: auto auto 0;} /* exclude footer height from popup dialog */
+.address-top .BookmarkPopup > footer {visibility: hidden; margin-top: -63px;} /* hide footer */
+.address-top .button-popup.button-popup-enter-done .BookmarkPopup > footer > input.danger {visibility: visible;} /* adjust REMOVE button when hide footer */
+}
+
