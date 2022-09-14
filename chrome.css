@@ -194,6 +194,7 @@ color:var(--colorImageFg, var(--colorAccentFg));
         background-color: var(--colorAccentBgAlpha);
 		border-radius:var(--radiusHalf);
 		opacity: 1;
+		top:1px;
 
 }
 .SearchField, .UrlBar-AddressField {
@@ -863,10 +864,15 @@ border-color: var(--colorAccentBgAlpha);
 
 input, select, textarea, input[type=text], input[type=search], input[type=password], input[type=email], input[type=url], input[type=number], input[type=radio], input[type=date], input[type=time], input[type=checkbox], input[type=button], input[type=submit] {
     border-color: var(--colorAccentBgAlpha);
-    background-color: var(--colorAccentBgAlphaHeavy);
+    background-color: none;
 	color: var(--colorImageFg, var(--colorAccentFg));
 }
-
+.BookmarkLocationSelector-SearchInput-Input:not(:focus) {
+    background: var(--colorAccentBgAlphaHeavy);
+}
+.BookmarkLocationSelector-SearchInput-Input:focus {
+    background: var(--colorAccentBgAlphaHeavy);
+}
 #modal-bg > div > div > footer {
 	background-color: var(--colorAccentBgAlphaHeavy);
 	border-color: var(--colorAccentBgAlpha);
@@ -1530,6 +1536,7 @@ border-bottom: none;
 .maximized#browser:has(.top) .UrlBar-AddressField {
     width: 24vw !important;
     top: 0px !important;
+	border-radius: var(--radiusHalf);
 }
 
 .maximized .win.normal .UrlBar-AddressField {
@@ -1541,7 +1548,7 @@ border-bottom: none;
     top: unset; /* dont set it to 0 */
     left: 35px !important;
     height: 29.99px;
-    background: var(--colorAccentBg) !important;
+    background: transparent !important;
 	border: none !important;
 	transform: translate(0, -30px); /* use instead of top =0 to fix showing or not showing empty space above tab */
 }
@@ -1561,7 +1568,7 @@ transform: translateY(-60px);
 }
 .toolbar-mainbar {
      background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker);
-	 	transition: background-color 0.7s ease-out;
+	 transition: background-color 2s ease-out;
 }
 
 .maximized .win.normal .toolbar-mainbar {
@@ -1571,7 +1578,13 @@ transform: translateY(-60px);
 }
 
 .color-behind-tabs-on#browser.tabs-top #header {
-	transition:0.7s ease-out;
+	transition:1s ease-out;
+}
+/*#tabs-tabbar-container {
+	transition:0.3s ease-out;
+} */
+.color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred header, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred footer, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .panel-group, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .bookmark-bar, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .manager-editor, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .vivaldi-settings, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .toolbar, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred:not(.is-settingspage) #header, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred #switch, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred #tabs-tabbar-container {
+     transition: background-color 2s ease;
 }
 
 .maximized #main > div.mainbar > div > div.toolbar-extensions { /* Only affect extension button on mainbar */
@@ -1726,7 +1739,7 @@ transform: scale(0);
 
 #tabs-container .tab.tab-small.audio-on .tab-audio, #tabs-container .tab.pinned.audio-on .tab-audio, #tabs-container .tab.tab-small.audio-muted .tab-audio, #tabs-container .tab.pinned.audio-muted .tab-audio, #tabs-container .tab.tab-small.tab-captured .tab-audio, #tabs-container .tab.pinned.tab-captured .tab-audio {
     left: 6px;
-	margin-top:0px;
+	margin-top:-1px;
 }
 
 /* Beautify find in page */
@@ -1941,10 +1954,12 @@ button.window-close svg path {
 	transform: unset; /* use instead of top =0 to fix showing or not showing empty space above tab */
 	width: unset;
 }
-/* Remove update button */
-#main > div.mainbar > div > div.button-toolbar.cl6ornq6o00d53a67x57c912r > button {
-	display:none;
+/* Move update button */
+/*[class^="button-toolbar "] {
+	position: absolute;
+    translate: -35px 47vw;
 }
+*/
 
 /* Remove line under address bar and extensions bar */
 .address-top .mainbar > .toolbar-mainbar .toolbar-extensions:before,
@@ -1958,7 +1973,7 @@ button.window-close svg path {
 
 
 /* ADD BOOKMARK DIALOG */
-.BookmarkButton svg > g > path.bookmark-animated-fill {fill: var(--colorHighlightBg) !important;} /* Added bookmark button hightlight */
+.BookmarkButton svg > g > path.bookmark-animated-fill {fill: var(--colorAccentBgFadedMore) !important;} /* Added bookmark button hightlight */
 
 .address-top .button-popup:has(.BookmarkPopup) {max-height: 99vh; margin-top: 7px; z-index: 99;} /* enable full height popup dialog */
 
@@ -1969,7 +1984,7 @@ button.window-close svg path {
 
 .BookmarkLocationSelector-ToggleButtonGroup-Button {font-size: 0; padding: 9px 6px 10px;} /* no text compact folder/SD selection tabs */
 .BookmarkLocationSelector-ToggleButtonGroup-Button svg {margin-left: 6px;} /* tab icon adjustment */
-.BookmarkLocationSelector-ToggleButtonGroup-Button:is(:hover, :focus-within) svg.folder-icon .fill-override {fill: var(--colorAccentBgAlpha); transform-origin: center; transform: scale(1.2);} /* improved tab icon hover/focus effect */
+.BookmarkLocationSelector-ToggleButtonGroup-Button:is(:hover, :focus-within) svg.folder-icon .fill-override {fill: var(--colorAccentBgFadedMore); transform-origin: center; transform: scale(1.2);} /* improved tab icon hover/focus effect */
 .BookmarkLocationSelector-ToggleButtonGroup-Button:is(:hover, :focus-within) {background:var(--colorAccentBgAlphaHeavy);}
 .BookmarkLocationSelector-ToggleButtonGroup-Button:not(.BookmarkLocationSelector-ToggleButtonGroup-Button--Pressed) {box-shadow: unset !important;} /* fix: confusing focus effect */
 
@@ -1982,7 +1997,7 @@ button.window-close svg path {
 
 .theme-dark .BookmarkPopup > footer > input.danger {color: var(--colorImageFg, var(--colorAccentFg));background:#db45379c; border-color: var(--colorErrorBgAlpha);} /* fix: dark theme REMOVE button color */
 .theme-dark .BookmarkPopup > footer > input.danger:hover {background-color: #db4537 !important;}
-.address-top .BookmarkPopup > footer > input[type="submit"] {width:100%;background: var(--colorAccentBgAlpha); border:none;} /* big DONE button */
+.address-top .BookmarkPopup > footer > input[type="submit"] {width:100%;background: var(--colorAccentBgAlpha); border: 1px solid var(--colorAccentBgFadedMore);} /* big DONE button */
 .address-top .BookmarkPopup > footer > input[type="submit"]:hover {transform: scale(1.05); background-color: #5252ffb0 !important;} 
 
 
@@ -1995,3 +2010,28 @@ button.window-close svg path {
 .address-top .button-popup.button-popup-enter-done .BookmarkPopup > footer > input.danger {visibility: visible;} /* adjust REMOVE button when hide footer */
 }
 
+
+/* Weird address bar border */
+
+.dim-blurred:not(.hasfocus) .SearchField, .dim-blurred:not(.hasfocus) .UrlBar-AddressField {
+	border:none;
+}
+
+
+button{
+	border-width:0px;
+}
+
+
+.UrlBar-AddressField .pageload .pageload-indicator {
+	height:24px;
+	background-color: var(--colorAccentBgDark);
+	top: -1px;
+	border-radius: var(--radiusHalf);
+}
+
+
+/*Fix sub tab line */
+.color-behind-tabs-on #tabs-subcontainer.top {
+box-shadow:none;
+}
