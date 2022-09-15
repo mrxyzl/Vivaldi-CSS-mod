@@ -1558,7 +1558,8 @@ border-bottom: none;
 
 .maximized#browser:has(#tabs-subcontainer.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { /* Fix tab stack bar on one liner */
 transform: translateY(-60px); 
-}
+transition:all 0.2s cubic-bezier(0.48, 0.45, 1, 1) 0s !important;
+} 
 .maximized .extension-popup.top { /*fix weird glitch of extension popup when transform toolbar */
     transform: translateX(-35px);
 }
@@ -1580,9 +1581,7 @@ transform: translateY(-60px);
 .color-behind-tabs-on#browser.tabs-top #header {
 	transition:1s ease-out;
 }
-/*#tabs-tabbar-container {
-	transition:0.3s ease-out;
-} */
+
 .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred header, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred footer, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .panel-group, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .bookmark-bar, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .manager-editor, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .vivaldi-settings, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred .toolbar, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred:not(.is-settingspage) #header, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred #switch, .color-behind-tabs-on:not(.transparent-tabbar)#browser.isblurred.dim-blurred #tabs-tabbar-container {
      transition: background-color 2s ease;
 }
@@ -2039,4 +2038,14 @@ button{
 /*Fix sub tab line */
 .color-behind-tabs-on #tabs-subcontainer.top {
 box-shadow:none;
+}
+
+/* Subtab animation */
+
+#tabs-subcontainer.visible {
+    animation: dropfade 0.4s;
+}
+#tabs-tabbar-container {
+	background:transparent;
+	transition: all 0.2s cubic-bezier(0.48, 0.45, 1, 1) 0s;
 }
