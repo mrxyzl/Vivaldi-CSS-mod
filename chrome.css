@@ -1558,7 +1558,7 @@ border-bottom: none;
 
 .maximized#browser:has(#tabs-subcontainer.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { /* Fix tab stack bar on one liner */
 transform: translateY(-60px); 
-transition:all 0.2s cubic-bezier(0.48, 0.45, 1, 1) 0s !important;
+transition:all 0.2s cubic-bezier(0.37, 0.16, 1, 1) 0s !important;
 } 
 .maximized .extension-popup.top { /*fix weird glitch of extension popup when transform toolbar */
     transform: translateX(-35px);
