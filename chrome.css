@@ -782,13 +782,17 @@ input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=co
 input[type=button]:not(.circular), input[type=submit], input[type=color], .FormButton {
 	background-image: none;
 	color:var(--colorImageFg, var(--colorAccentFg));
-	
+	background-color: var(--colorAccentFgAlpha);
 }
 
 #switch .addwebpanel-wrapper > button, #switch > button {
 	Color:var(--colorFg);
 	opacity:0.9;
 }
+
+#translate-panel > form > div.TranslatePanel-FromTo.toolbar.toolbar-default > input[type=button] {
+    padding-bottom: 4px;
+	}
 
 /* Beautify Omni dropdown */
 
@@ -1243,6 +1247,7 @@ color: var(--colorImageFg, var(--colorAccentFg));
     background: var(--colorAccentFgAlpha);
     border: none;
 	color: var(--colorAccentBgFadedMost);
+	border-radius: var(--radiusHalf);
 }
 
 .calendar-grid-hours .hour-track {
@@ -1345,6 +1350,28 @@ opacity:0.8;
 .calendar-grid-week .calendar-event.editing, .calendar-grid-multiweek .calendar-event.editing, .calendar-grid-month .calendar-event.editing {
 	max-width: -webkit-fill-available;
 }
+
+.calendar-grid-agenda .cal-tasks-row .cal-tasks-row-date.current {
+    width: 100%;
+    color: var(--colorImageFg, var(--colorAccentFg));
+    border-radius: var(--radiusHalf) var(--radiusHalf) 0 0;
+    background: var(--colorAccentBg);
+    margin: 6px -1px 0 0;
+    padding: 3px 0 3px 0;
+	font-size:14px;
+	font-weight:bold;
+}
+
+#calendar_panel > div > div > div:nth-child(1) > div.cal-tasks-row-events {
+	background-color: var(--colorAccentBgAlpha);
+    border-radius: 0 0 var(--radiusHalf) var(--radiusHalf);
+	margin-bottom: 5px;
+}
+
+#panels #calendar_panel .cal-tasks-row, #panels #tasks_panel .cal-tasks-row {
+    border-bottom: 1px solid var(--colorAccentBgAlphaHeavy);
+	}
+	
 /* Mail button */
 .toolbar-group > hr {
     border-color: var(--colorAccentBgAlpha);
@@ -2072,9 +2099,6 @@ box-shadow:none;
 	    border-radius: var(--radius);
 }
 
-.calendar-event {
-    padding: 8px;
-}
 
 input, select, textarea {
     background-color: var(--colorBgAlphaHeavier);
@@ -2089,4 +2113,17 @@ input, select, textarea {
 
 #modal-bg.default-browser > div {
 	Border-radius: 0px;
+}
+
+/*Beautify event panel*/
+
+.panel .calendar-event .cal-event-body {
+    overflow-wrap: anywhere;
+    height: 44px;
+    align-content: center;
+}
+#tasks_panel .calendar-event:not(.editing) .cal-event-body .cal-event-header {
+    padding-left: 22px;
+    text-indent: -22px;
+    padding-top: 12px;
 }
