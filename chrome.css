@@ -110,7 +110,15 @@ animation: none !important;
 	background-color: transparent;
 }
 
-
+#switch .addwebpanel-wrapper > button:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):hover, #switch > .button-toolbar:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):hover, #switch > * > .button-toolbar:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):hover, #switch > button:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):hover, #switch .addwebpanel-wrapper > button:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):active, #switch > .button-toolbar:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):active, #switch > * > .button-toolbar:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):active, #switch > button:not(.toolbar-spacer, .toolbar-spacer-flexible, .divider):active {
+	background-color: transparent !important;
+}
+#switch .addwebpanel-wrapper > button.active:not(:focus), #switch > .button-toolbar.active:not(:focus), #switch > * > .button-toolbar.active:not(:focus), #switch > button.active:not(:focus) {
+	color:var(--colorAccentBgFadedMost) ;
+}
+#switch .addwebpanel-wrapper > button.active, #switch > .button-toolbar.active, #switch > * > .button-toolbar.active, #switch > button.active {
+    box-shadow: inset 2px 0 0 var(--colorAccentBgAlpha);
+}
  #header, #main {
     position: unset;
 }
@@ -231,6 +239,9 @@ color:var(--colorImageFg, var(--colorAccentFg));
 	
 .BookmarkButton {
 	border: none;
+}
+.toolbar.toolbar-vertical > .button-toolbar > button:hover {
+    border-radius: 0 var(--radius) var(--radius) 0;
 }
 /* ###################################################################################################################################### */
 
@@ -1246,8 +1257,8 @@ color: var(--colorImageFg, var(--colorAccentFg));
 }
 
 .calendar-event.editing {
-    background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), var(--colorAccentBg);
-	outline: 1px solid var(--colorAccentBgDarker);
+    background: var(--colorBgAlphaHeavier);
+    outline: none;
 }
 
 .calendar-event .cal-edit-tabs > .cal-edit-tab:hover {
@@ -2048,4 +2059,34 @@ box-shadow:none;
 #tabs-tabbar-container {
 	background:transparent;
 	transition: all 0.2s cubic-bezier(0.48, 0.45, 1, 1) 0s;
+}
+
+/* Fix button in ták panel */
+
+.FormButton.FormButton--WithIcon {
+	background: var(--colorAccentBgAlphaHeavy);
+	padding: 12px;
+}
+
+.FilterAndSearch-Input.FilterAndSearch-Input {
+	    border-radius: var(--radius);
+}
+
+.calendar-event {
+    padding: 8px;
+}
+
+input, select, textarea {
+    background-color: var(--colorBgAlphaHeavier);
+}
+
+
+#modal-bg.default-browser .SuggestDefault {
+	Background:var(--colorAccentBgAlphaHeavy);
+	height: 34px;
+}
+
+
+#modal-bg.default-browser > div {
+	Border-radius: 0px;
 }
