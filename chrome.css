@@ -603,6 +603,7 @@ background-color: var(--colorAccentBgAlpha);
 opacity: 0.9;
 }
 
+ 
 .toolbar.toolbar-default.toolbar-align-top {
 	color: var(--colorImageFg, var(--colorAccentFg));
 opacity: 0.75;
@@ -772,10 +773,21 @@ input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=co
 }
 .panel .tree-row:hover {
 	background-color: var(--colorAccentBgAlpha);
-	transform: scale(1.05);
 	transition: 0.3s ease-out;
 	background-image: none;
+	border-radius:var(--radius);
 }
+#history-panel > section > div > div > div > * > div > label:hover {
+	transform: scale(1.02);
+	transition: 0.3s ease-out;
+}
+
+.panel.downloads .DownloadItem:hover, .popout.downloads-popout .DownloadItem:hover {
+	transform: scale(1.05);
+	transition: 0.3s ease-out;
+}
+#history-panel > section > div > div > div:not(:first-child):hover {
+	
 #translate-panel > form > div.TranslatePanel-FromTo.toolbar.toolbar-default {
 	color:var(--colorImageFg, var(--colorAccentFg));
 }
@@ -2126,4 +2138,8 @@ input, select, textarea {
     padding-left: 22px;
     text-indent: -22px;
     padding-top: 12px;
+}
+*:focus-visible {
+    outline: 2px solid var(--colorAccentBg);
+	border-radius:var(--radius);
 }
