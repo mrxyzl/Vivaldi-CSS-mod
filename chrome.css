@@ -786,7 +786,7 @@ input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=co
 	transform: scale(1.05);
 	transition: 0.3s ease-out;
 }
-#history-panel > section > div > div > div:not(:first-child):hover {
+
 	
 #translate-panel > form > div.TranslatePanel-FromTo.toolbar.toolbar-default {
 	color:var(--colorImageFg, var(--colorAccentFg));
@@ -984,6 +984,16 @@ svg.folder-icon .fill-override {
     background-color: transparent;
 }
 
+#browser > div.button-popup.button-popup-center.button-popup-pos-below.button-popup-arrow-dark.button-popup-enter-done > form > header {
+	background-color: var(--colorAccentBgAlphaHeavy);
+}
+.DialogHeader {
+	background-color: var(--colorAccentBgAlphaHeavy);
+}
+.BookmarkInputField:focus-within {
+	border-bottom-color: var(--colorAccentBgAlpha);
+    box-shadow: 0px 1px 0px 0px var(--colorAccentBgAlpha);
+}
 /*Beautify QR share popup*/
 
 .qr-share-dialog {
@@ -1027,6 +1037,13 @@ background-color: var(--colorAccentBgAlpha);
 
 .button-popup-below.button-popup-arrow-dark:before {
     border-bottom-color: var(--colorAccentBgAlphaHeavy);
+}
+.button-popup-arrow-dark:before {
+    border-bottom-color: var(--colorAccentBgAlpha) !important;
+}
+
+.button-popup:before {
+    filter: drop-shadow(0 -1px var(--colorAccentBg));
 }
 
 /* Only show domain and centered on addressbar */
@@ -2029,7 +2046,7 @@ button.window-close svg path {
 /* ADD BOOKMARK DIALOG */
 .BookmarkButton svg > g > path.bookmark-animated-fill {fill: var(--colorAccentBgFadedMore) !important;} /* Added bookmark button hightlight */
 
-.address-top .button-popup:has(.BookmarkPopup) {max-height: 99vh; margin-top: 7px; z-index: 99;} /* enable full height popup dialog */
+.address-top .button-popup:has(.BookmarkPopup) {max-height: 99vh; margin-top: 0px; z-index: 99; box-shadow: 0 0 0 0px var(--colorAccentBgAlpha), 0 2px 2px rgba(0, 0, 0, 0.7);} /* enable full height popup dialog */
 
 .address-top .BookmarkPopup > header > h1 {font-size:0;} /* hide header */
 .address-top .BookmarkPopup > header > p {text-indent: -22px; clip-path: inset(0 0 0 -7px); font-size: 16px;} /* adjust selected folder title, might need adjustment for non-English language GUI */
