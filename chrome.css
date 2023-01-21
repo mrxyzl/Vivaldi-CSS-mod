@@ -474,8 +474,8 @@ animation-delay: 1s;
 	background: var(--colorAccentBgAlphaHeavy);
     border-bottom-color: transparent;
 }
-#app .ContentBlocker.button-popup {
-    border-radius: var(--radius);
+.button-popup {
+	top:36px !important;
 }
 
 button.privacy-btn-icon, #app .ContentBlocker-Field input[type=button], #app .ContentBlocker-Blocked {
@@ -781,6 +781,13 @@ input[type=button]:not(.circular):hover, input[type=submit]:hover, input[type=co
 	transform: scale(1.02);
 	transition: 0.3s ease-out;
 }
+.panel-bookmarks > section.outerScrollbar > div > div > div > * > div > label:hover, #mail_panel > section > div > div > div > * > div > label:hover {
+	transform: scale(1.02);
+	transition: 0.3s ease-out;
+}
+.notes-cardwrapper .upper-half .preview, .addbookmark-cardwrapper .upper-half .preview {
+    border: 1px solid var(--colorAccentBgAlphaHeavy);
+}
 
 .panel.downloads .DownloadItem:hover, .popout.downloads-popout .DownloadItem:hover {
 	transform: scale(1.05);
@@ -805,7 +812,12 @@ input[type=button]:not(.circular), input[type=submit], input[type=color], .FormB
 #translate-panel > form > div.TranslatePanel-FromTo.toolbar.toolbar-default > input[type=button] {
     padding-bottom: 4px;
 	}
-
+.cardview input[type=text]{
+	background-color:var(--colorBgAlphaHeavier);
+}
+.cardview input[type=text]:hover, .cardview input[type=text]:focus {
+background-color: var(--colorAccentBgAlphaHeavy);
+}
 /* Beautify Omni dropdown */
 
 .OmniDropdown {
@@ -1039,11 +1051,13 @@ background-color: var(--colorAccentBgAlpha);
     border-bottom-color: var(--colorAccentBgAlphaHeavy);
 }
 .button-popup-arrow-dark:before {
-    border-bottom-color: var(--colorAccentBgAlpha) !important;
+    border-bottom-color: var(--colorAccentBgAlphaHeavy) !important;
 }
-
+.button-popup-arrow-light:before {
+    border-bottom-color: var(--colorAccentBgAlphaHeavy);
+}
 .button-popup:before {
-    filter: drop-shadow(0 -1px var(--colorAccentBg));
+    filter: drop-shadow(0 -1px var(--colorAccentBgAlpha));
 }
 
 /* Only show domain and centered on addressbar */
@@ -1257,7 +1271,11 @@ select {
 #calendar_panel .PeriodPicker.PeriodPicker {
 	background: var(--colorAccentBgAlphaHeavy);
 	border: none;
-color: var(--colorImageFg, var(--colorAccentFg));
+	color: var(--colorImageFg, var(--colorAccentFg));
+    min-width: auto;
+	width: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .toolbar-default .button-toolbar > button:enabled.button-pressed {
@@ -1335,6 +1353,7 @@ opacity:0.8;
     background-size: 10px 10px;
     background-position: 95% 8px;
 	opacity: 0.7;
+	width: 150px;
 }
 
 .calendar-event input[type=button].circular {
@@ -2020,14 +2039,7 @@ button.window-close svg path {
 	transform: unset; /* use instead of top =0 to fix showing or not showing empty space above tab */
 	width: unset;
 }
-/* Move update button */
-.maximized [name="UpdateButton"] {
-	position: absolute;
-    transform:translate(-472px 47vw);
-	Color:white;
-	opacity:0.7;
-}
-*/
+
 
 /* Remove line under address bar and extensions bar */
 .address-top .mainbar > .toolbar-mainbar .toolbar-extensions:before,
@@ -2144,19 +2156,144 @@ input, select, textarea {
 	Border-radius: 0px;
 }
 
-/*Beautify event panel*/
+/*Beautify calendar event panel*/
 
 .panel .calendar-event .cal-event-body {
     overflow-wrap: anywhere;
-    height: 44px;
+    height: fit-content;
     align-content: center;
 }
 #tasks_panel .calendar-event:not(.editing) .cal-event-body .cal-event-header {
     padding-left: 22px;
     text-indent: -22px;
     padding-top: 12px;
+	padding-bottom:12px;
 }
+
+.panel .calendar-event .cal-event-body:not(:has(.sentry)):hover {
+	transform: scale(1.05);
+	transition: 0.3s ease-out;
+}
+.panel .calendar-event .cal-event-body {
+	    padding-left: 16px;
+}
+.calendar-event.solid:hover, .calendar-event.all-day:hover {
+	background-color: var(--colorCalendarBg);
+}
+.calendar-event.editing:hover {
+	background-color:var(--colorBgAlphaHeavier) !important;
+	transform: none !important;
+}
+.calendar-event .cal-event-body-edit.selected:hover {
+	transform: none !important;
+}
+.calendar-event .cal-event-body-edit {
+	max-width:100%
+}
+
+.calendar-event select:not([multiple]):not([size]) {
+	background-position: 92% 8px;
+}
+
+
+.calendar-event .cal-edit-tabs {
+	flex-wrap: nowrap;
+}
+.button-toolbar > button span + .button-title {
+    min-width: 3ch;
+}
+/* Beautify focus color */
+
 *:focus-visible {
     outline: 2px solid var(--colorAccentBg);
 	border-radius:var(--radius);
+}
+
+/*Fix calendar panel flex */
+
+#calendar_panel > header > div:nth-child(2) {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: flex-end;
+}
+
+.button-toolbar > button span + .button-title {
+    min-width: 3ch;
+	}
+.CalendarSelector.CalendarSelector.CalendarSelector.button-toolbar {
+    flex: 1 1 auto;
+	max-width: 210px;
+}
+#calendar_panel > header > div.toolbar.toolbar-default.toolbar-wrap {
+	flex-wrap: nowrap;
+}
+.toolbar-default .button-toolbar {
+    min-width: 32px;
+}
+
+.toolbar-group {
+    display: flex;
+    white-space: nowrap;
+    --ToolbarItemGap: 0;
+    align-items: center;
+    min-width: inherit;
+}
+
+#calendar_panel .PeriodPicker h1 {
+    min-width: 50px;
+    overflow: hidden;
+}
+#calendar_panel .PeriodPicker.PeriodPicker .button-toolbar {
+    height: 26px;
+    margin-left: 4px;
+}
+
+#calendar_panel > header > div:nth-child(2) > div.PeriodPicker.no-page-focus > h1 {
+	display: inline-block;
+    flex: 0 1 auto;
+    min-width: 3ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.toolbar-default .button-toolbar.button-narrow {
+    min-width: fit-content;
+	width: 30px;
+	
+}
+
+/* Beautify date picker popup */
+
+.DatePickerPopup {
+	backdrop-filter: brightness(70%) blur(1em);
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border-radius: var(--radiusCap);
+}
+
+.DatePickerPopup .toolbar {
+	background-color: var(--colorAccentBgAlphaHeavy);
+	border-radius: var(--radiusCap);
+}
+
+.CalendarMonth-Day--Weekend {
+    background-color: var(--colorAccentBgAlpha);
+}
+
+.CalendarMonth-Day {
+    outline: 1px solid var(--colorAccentBgDarker);
+}
+
+.DatePickerPopup h1.button:hover {
+    background-image: linear-gradient(var(--colorAccentBgAlphaHeavy), var(--colorAccentFgAlpha));
+    border-color: var(--colorAccentBgAlpha);
+}
+
+.CalendarMonth-Day:hover {
+	background-color: var(--colorAccentBgAlpha);
+	transform: scale(1.1);
+	transition: 0.3s ease-out;
+	
 }
